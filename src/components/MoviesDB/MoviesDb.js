@@ -14,7 +14,7 @@ const MoviesDb = () => {
         setMovies([])
         setLoading(true)
 
-        axios.get(URL.API_URL + `api_key=${process.env.REACT_APP_API_KEY}`)
+        axios.get(URL.API_URL + `api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
             .then(res => {
                 setMovies([res.data])
                 console.log(res.data);
