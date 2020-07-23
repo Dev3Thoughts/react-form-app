@@ -1,7 +1,8 @@
 import React from 'react'
-import { URL } from "../util/utilty"
+
+
 const MovieCard = ({ movies }) => {
-    console.log("console log", movies);
+    
     return (
         <div>
             {movies.map((movie, id) => (
