@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import "bootswatch/dist/yeti/bootstrap.min.css"; 
-import './index.css';
+import "bootswatch/dist/superhero/bootstrap.min.css"; 
 import App from './App';
 
 
