@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { URL } from "../util/utilty"
 import Loader from "../layout/Loader"
+import MovieCard from "./MovieCard"
 
 const MoviesDb = () => {
     const [movies, setMovies] = useState([])
@@ -9,12 +10,11 @@ const MoviesDb = () => {
     const [error, setError] = useState(null)
 
 
-
-
     useEffect(() => {
         setMovies([])
         setLoading(true)
-        axios.get(URL.API_URL + `/movie/550?api_key=${process.env.REACT_APP_API_KEY}`)
+
+        axios.get(URL.API_URL + `api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => {
                 setMovies([res.data])
                 console.log(res.data);
@@ -33,12 +33,9 @@ const MoviesDb = () => {
     }
 
     return (
-        <div>
-            <h1>Movies</h1>
-            <p className="text-info">
-                {JSON.stringify(movies)}
-            </p>
-
+        <div className="container">
+            <h1 className="row justify-content-center align-items-center m-2">Movies</h1>
+            <MovieCard movies={movies} />
         </div>
     )
 }

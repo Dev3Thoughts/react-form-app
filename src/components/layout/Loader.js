@@ -3,13 +3,15 @@ import ClipLoader from "react-spinners/ClipLoader"
 
 const Loader = () => {
     return (
-        <div>
-            <ClipLoader
-                sizeUnit={"px"}
-                size={150}
-                color={'#DF691A'}
-                loading={true}
-            />
+        <div className='container'>
+            <div className="row h-100 justify-content-center align-items-center">
+                <ClipLoader
+                    sizeUnit={"px"}
+                    size={150}
+                    color={'#DF691A'}
+                    loading={true}
+                />
+            </div>
         </div>
     )
 }

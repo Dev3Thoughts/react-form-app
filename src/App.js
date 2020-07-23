@@ -7,7 +7,7 @@ function App() {
     <div>
       <Navbar />
       <Movies />
-      <Form />
+      {/* <Form /> */}
     </div>
   );
 }

@@ -18,12 +18,12 @@ const Form = () => {
         setNotes(data)
     }
 
-    const handleChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        })
-    }
+    // const handleChange = (e) => {
+    //     setForm({
+    //         ...form,
+    //         [e.target.name]: e.target.value
+    //     })
+    // }
 
     return (
         <div className='container' style={{ width: '400px', marginTop: 20 }}>
