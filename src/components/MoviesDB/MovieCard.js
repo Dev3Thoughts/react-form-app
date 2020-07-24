@@ -1,21 +1,40 @@
 import React from 'react'
-
+import { IoMdAddCircle } from "react-icons/io"
+import { BsStarFill } from "react-icons/bs"
+import { BsStarHalf } from "react-icons/bs"
 
 const MovieCard = ({ movies }) => {
-    
+
     return (
         <div>
             {movies.map((movie, id) => (
                 <div className="card" style={{ width: "22rem" }} key={id}>
                     <img style={{
                         height: "200px"
-                    }} src={`http://image.tmdb.org/t/p/w185${movie.backdrop_path}`} alt="Movie Poster" />
+                    }} src={`http://image.tmdb.org/t/p/w185${movie.poster_path}`} alt="Movie Poster" />
                     <div className="card-body">
-                        <h3 className="text-primary">{movie.original_title}</h3>
-                        <h5 className="lead">{movie.overview}</h5>
-                        <h6 className="card-subtitle text-primary mt-1">Genres: {movie.genres[0].name}</h6>
-                        <h6 className="card-subtitle text-info mt-1">Release: {movie.release_date}</h6>
-                        <h6 className="card-subtitle text-warning mt-1">Rated: {movie.vote_average}</h6>
+                        <h2 className="text-primary">{movie.original_title}</h2>
+                        <strong className="text-bold">Overview</strong>
+                        <h3 className="lead">{movie.overview}</h3>
+                        <p className="card-subtitle text-muted mt-1">Genres: {movie.genres[0].name}</p>
+                        <p className="card-subtitle text-muted mt-1">Release: {movie.release_date}</p>
+                        <a className="card-subtitle text-warning mt-1">Rated:
+                        <BsStarFill className="ml-1 mb-1" />
+                            <BsStarFill className="mb-1" />
+                            <BsStarHalf className="mr-1 mb-1" />
+                            {movie.vote_average}
+                        </a>
+                    </div>
+
+                    <div className="card">
+                        <div className="card-body">
+                            <button href="#" type="button" className="btn btn-outline-success m-2">
+                                <IoMdAddCircle className="text-warning mb-1" /> Rent: $9.99
+                            </button>
+                            <button href="#" type="button" className="btn btn-outline-success m-2">
+                                <IoMdAddCircle className="text-warning mb-1" /> Buy: $49.00
+                            </button>
+                        </div>
                     </div>
                 </div>
             ))}

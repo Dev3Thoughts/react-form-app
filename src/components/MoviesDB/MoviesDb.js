@@ -33,7 +33,9 @@ const MoviesDb = () => {
 
     return (
         <div className="container">
-            <MovieCard movies={movies} />
+            <div className="row">
+                <MovieCard movies={movies} />
+            </div>
         </div>
     )
 }
