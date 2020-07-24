@@ -19,20 +19,20 @@ const MovieCard = ({ movies }) => {
                         <h3 className="lead">{movie.overview}</h3>
                         <p className="card-subtitle text-muted mt-1">Genres: {movie.genres[0].name}</p>
                         <p className="card-subtitle text-muted mt-1">Release: {movie.release_date}</p>
-                        <a className="card-subtitle text-warning mt-1">Rated:
+                        <p className="card-subtitle text-warning mt-1">Rated:
                         <BsStarFill className="ml-1 mb-1" />
                             <BsStarFill className="mb-1" />
                             <BsStarHalf className="mr-1 mb-1" />
                             {movie.vote_average}
-                        </a>
+                        </p>
                     </div>
 
                     <div className="card">
                         <div className="card-body">
-                            <button href="#" type="button" className="btn btn-outline-success m-2">
+                            <button href="#" type="button" className="btn btn-outline-success m-2 text-white">
                                 <IoMdAddCircle className="text-warning mb-1" /> Rent: $9.99
                             </button>
-                            <button href="#" type="button" className="btn btn-outline-success m-2">
+                            <button href="#" type="button" className="btn btn-outline-success m-2 text-white">
                                 <IoMdAddCircle className="text-warning mb-1" /> Buy: $49.00
                             </button>
                         </div>
