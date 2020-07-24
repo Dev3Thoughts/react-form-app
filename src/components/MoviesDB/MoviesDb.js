@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { URL } from "../util/utilty"
 import Loader from "../layout/Loader"
+import Error from "../layout/Erorr"
 import MovieCard from "./MovieCard"
 
 const MoviesDb = () => {
@@ -26,15 +27,12 @@ const MoviesDb = () => {
             })
     }, [])
 
-    if (loading) {
-        return <Loader />
-    } if (error) {
-        return <p className="text-danger">API Error...</p>
-    }
+    if (loading) return <Loader />
+    if (error) return <Error />
+
 
     return (
         <div className="container">
-            <h1 className="row justify-content-center align-items-center m-2">Movies</h1>
             <MovieCard movies={movies} />
         </div>
     )
