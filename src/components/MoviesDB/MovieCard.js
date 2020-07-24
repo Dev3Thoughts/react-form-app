@@ -39,7 +39,6 @@ const MovieCard = ({ movies }) => {
                     </div>
                     <div className="card">
                         <div className="card-body">
-                            
                             <Form />
                         </div>
                     </div>

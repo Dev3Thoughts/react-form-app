@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { MdExpandMore } from "react-icons/md"
+import { IoMdAddCircle } from "react-icons/io"
 
 const Form = () => {
     const [notes, setNotes] = useState(null);
@@ -26,11 +27,13 @@ const Form = () => {
         })
     }
 
+    console.log(form);
+
     return (
         <div className='container'>
-            <strong className="text-bold">Comment</strong>
+            <h5 className="text-bold">Comments</h5>
             <div>
-                <p className="text-info">
+                <p>
                     {JSON.stringify(notes, null, 8)}
                 </p>
             </div>
@@ -43,7 +46,11 @@ const Form = () => {
                     : ''
             }
             <form action="">
-                <a>Add comment<MdExpandMore /></a>
+                <button className="btn btn-outline-info btn-sm m-2">
+                    <IoMdAddCircle className="m-1" />
+                Add comment
+                <MdExpandMore className="m-1 ml-1" />
+                </button>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="title">Add title</label>
@@ -53,6 +60,7 @@ const Form = () => {
                             className="form-control"
                             id="title"
                             placeholder="Add title"
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="form-group">
@@ -62,7 +70,8 @@ const Form = () => {
                             name='description'
                             placeholder="Add description..."
                             id="description"
-                            rows="3">
+                            rows="3"
+                            onChange={handleChange}>
                         </textarea>
                     </div>
                 </fieldset>
