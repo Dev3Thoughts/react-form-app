@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { MdExpandMore } from "react-icons/md"
 
 const Form = () => {
     const [notes, setNotes] = useState(null);
@@ -18,15 +19,21 @@ const Form = () => {
         setNotes(data)
     }
 
-    // const handleChange = (e) => {
-    //     setForm({
-    //         ...form,
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
 
     return (
-        <div className='container' style={{ width: '400px', marginTop: 20 }}>
+        <div className='container'>
+            <strong className="text-bold">Comment</strong>
+            <div>
+                <p className="text-info">
+                    {JSON.stringify(notes, null, 8)}
+                </p>
+            </div>
             {
                 isSubmitting
                     ?
@@ -36,6 +43,7 @@ const Form = () => {
                     : ''
             }
             <form action="">
+                <a>Add comment<MdExpandMore /></a>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="title">Add title</label>
@@ -60,12 +68,7 @@ const Form = () => {
                 </fieldset>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-            <div>
-                <p className="text-info"
-                    style={{ width: 400, marginTop: 20 }}>
-                    {JSON.stringify(notes, null, 8)}
-                </p>
-            </div>
+
         </div>
     )
 }

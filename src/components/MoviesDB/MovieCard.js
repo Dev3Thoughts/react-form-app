@@ -2,6 +2,7 @@ import React from 'react'
 import { IoMdAddCircle } from "react-icons/io"
 import { BsStarFill } from "react-icons/bs"
 import { BsStarHalf } from "react-icons/bs"
+import Form from "../Form"
 
 const MovieCard = ({ movies }) => {
 
@@ -34,6 +35,12 @@ const MovieCard = ({ movies }) => {
                             <button href="#" type="button" className="btn btn-outline-success m-2">
                                 <IoMdAddCircle className="text-warning mb-1" /> Buy: $49.00
                             </button>
+                        </div>
+                    </div>
+                    <div className="card">
+                        <div className="card-body">
+                            
+                            <Form />
                         </div>
                     </div>
                 </div>
