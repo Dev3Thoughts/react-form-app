@@ -12,7 +12,7 @@ const MovieCard = ({ movies }) => {
                 <div className="card" style={{ width: "22rem" }} key={id}>
                     <img style={{
                         height: "200px"
-                    }} src={`http://image.tmdb.org/t/p/w185${movie.poster_path}`} alt="Movie Poster" />
+                    }} src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="Movie Poster" />
                     <div className="card-body">
                         <h2 className="text-primary">{movie.original_title}</h2>
                         <strong className="text-bold">Overview</strong>

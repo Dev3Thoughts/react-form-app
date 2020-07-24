@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { MdExpandMore } from "react-icons/md"
-import { IoMdAddCircle } from "react-icons/io"
+// import { MdExpandMore } from "react-icons/md"
+// import { IoMdAddCircle } from "react-icons/io"
 
 const Form = () => {
     const [notes, setNotes] = useState(null);
@@ -36,6 +36,10 @@ const Form = () => {
             err.comments = 'Title cannot be more than 40 characters';
         }
         return err;
+    }
+
+    const showError = () =>  {
+
     }
 
     console.log(form);
