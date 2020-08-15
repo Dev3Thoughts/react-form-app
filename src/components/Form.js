@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-// import { MdExpandMore } from "react-icons/md"
-// import { IoMdAddCircle } from "react-icons/io"
 
 const Form = () => {
     const [notes, setNotes] = useState(null);
-    const [form, setForm] = useState({ comments: "" })
+    const [form, setForm] = useState({ reviews: "" })
     const [isSubmitting, setIsSubmitting] = useState(false)
 
 
@@ -29,11 +27,11 @@ const Form = () => {
 
     const validate = () => {
         let err = {}
-        if (!form.comments) {
-            err.comments = 'comment is required';
+        if (!form.reviews) {
+            err.reviews = 'review is required';
         }
-        if (!form.comments.length > 20) {
-            err.comments = 'Title cannot be more than 40 characters';
+        if (!form.reviews.length > 20) {
+            err.reviews = 'Title cannot be more than 40 characters';
         }
         return err;
     }
@@ -47,7 +45,6 @@ const Form = () => {
 
     return (
         <div className='container'>
-            {/* <h5 className="text-bold">Comments</h5> */}
             <div className="p-2">
                 <p>
                     {JSON.stringify(notes, null, 8)}
@@ -61,26 +58,22 @@ const Form = () => {
                     </div>
                     : ''
             }
-            <form action="">
-                {/* <button className="btn btn-outline-info btn-sm m-2 text-white">
-                    <IoMdAddCircle className="m-1" />
-                Add comment
-                <MdExpandMore className="m-1 ml-1" />
-                </button> */}
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="comment">Add your comment</label>
-                        <textarea
-                            className="form-control"
-                            name='comment'
-                            placeholder="Comment..."
-                            id="comment"
-                            rows="2"
-                            onChange={handleChange}>
-                        </textarea>
-                    </div>
-                </fieldset>
+
+            <form>
+                <div className="form-group">
+                    <label htmlFor="review">Add your review</label>
+                    <textarea
+                        className="form-control"
+                        name='review'
+                        placeholder="review..."
+                        id="review"
+                        rows="1"
+                        onChange={handleChange}>
+                    </textarea>
+
+                </div>
                 <button type="submit" className="btn btn-primary">Add</button>
+
             </form>
 
         </div>
