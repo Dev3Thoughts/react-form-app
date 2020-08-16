@@ -6,7 +6,6 @@ function App() {
   return (
     <div>
       <Navbar />
-      <h1 className="row justify-content-center align-items-center m-2">Movies</h1>
       <Movies />
     </div>
   );

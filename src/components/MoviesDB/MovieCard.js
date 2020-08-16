@@ -1,15 +1,14 @@
 import React from 'react'
 import { IoMdAddCircle } from "react-icons/io"
-import { BsStarFill } from "react-icons/bs"
-import { BsStarHalf } from "react-icons/bs"
-import Form from "../Form"
+import { BsStarFill, BsStarHalf, } from "react-icons/bs";
+// import Form from "../Form"
 
 const MovieCard = ({ movies }) => {
 
     return (
         <div>
             {movies.map((movie, id) => (
-                <div className="card" style={{ width: "22rem" }} key={id}>
+                <div className="card mt-4" style={{ width: "22rem" }} key={id}>
                     <img style={{
                         height: "200px"
                     }} src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="Movie Poster" />
@@ -37,11 +36,11 @@ const MovieCard = ({ movies }) => {
                             </button>
                         </div>
                     </div>
-                    <div className="card">
+                    {/* <div className="card">
                         <div className="card-body">
                             <Form />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             ))}
         </div>
