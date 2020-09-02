@@ -7,16 +7,15 @@ import PageNotFound from "../PageNotFound";
 import "../global.css";
 
 const MoviesDb = () => {
-  const { detail } = useParams();
-  const { data: movies, error, loading } = useFetch(`${detail}`);
+  const { original_title } = useParams();
+  const { data: movies, error, loading } = useFetch(original_title);
   console.log(movies);
 
   function renderMovies(i) {
     return (
-      <div className="col-md-auto m-4" key={i.id}>
-        <Link to={`/${detail}/${i.id}`}>
+      <div className="col-md-auto m-4 poster" key={i.id}>
+        <Link to={`/${original_title}/${i.id}`}>
           <img
-            style={{ maxWidth: "300px" }}
             src={`http://image.tmdb.org/t/p/w500${i.poster_path}`}
             alt={i.original_title}
           />
@@ -36,7 +35,6 @@ const MoviesDb = () => {
         <Link to={`/${movies}/${movies.id}`}>
           <div className="mt-4 col poster">
             <img
-              style={{ maxWidth: "300px" }}
               src={`http://image.tmdb.org/t/p/w500${movies.poster_path}`}
               alt={movies.original_title}
             />

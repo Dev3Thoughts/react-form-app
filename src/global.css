@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .full-page-loader {
   position: absolute;
   top: 0;
@@ -13,13 +18,10 @@
 .poster {
   position: relative;
   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 0;
 }
 
-.bottom-left {
-  position: absolute;
-  bottom: 16px;
-  padding: 4px;
-  background: rgba(0, 0, 0, 0.55);
+.poster img {
+  border-radius: 16px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }

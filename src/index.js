@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import "bootswatch/dist/superhero/bootstrap.min.css";
 import App from './App';
 
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
