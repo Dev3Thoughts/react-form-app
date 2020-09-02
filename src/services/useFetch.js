@@ -11,10 +11,10 @@ export default function useFetch(url) {
     useEffect(() => {
         async function init() {
             try {
-                const res = await fetch(URL.API_URL );
+                const res = await fetch(URL.API_URL);
                 if (res.ok) {
                     const json = await res.json();
-                    setData(json);
+                    setData(json.results);
                 } else {
                     throw res;
                 }
