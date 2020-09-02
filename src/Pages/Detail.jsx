@@ -17,7 +17,7 @@ export default function Detail() {
         src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.original_title}
       />
-      <h2 className="text-bold">Overview</h2>
+      <h2 className="text-bold mt-2">Overview</h2>
       <p className="lead">{movie.overview}</p>
       <p className="card-subtitle">Genres: {movie.genres[0].name}</p>
       <p className="card-subtitle mt-1">Release: {movie.release_date}</p>
