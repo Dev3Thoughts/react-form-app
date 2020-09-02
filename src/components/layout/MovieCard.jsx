@@ -28,9 +28,9 @@ const MovieCard = ({ movies }) => {
 
                     <div className="card">
                         <div className="card-body">
-                            <button href="#" type="button" className="btn btn-outline-success m-2 text-white">
+                            {/* <button href="#" type="button" className="btn btn-outline-success m-2 text-white">
                                 <IoMdAddCircle className="text-warning mb-1" /> Rent: $9.99
-                            </button>
+                            </button> */}
                             <button href="#" type="button" className="btn btn-outline-success m-2 text-white">
                                 <IoMdAddCircle className="text-warning mb-1" /> Buy: $49.00
                             </button>

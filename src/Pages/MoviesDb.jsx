@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import { URL } from "../util/utilty"
-import Loader from "../layout/Loader"
-import Error from "../layout/Erorr"
-import MovieCard from "./MovieCard"
+import { URL } from "../components/util/utilty"
+import Loader from "../components/Error/Loader"
+import Error from "../components/Error/Erorr"
+import MovieCard from "../components/layout/MovieCard"
 
 const MoviesDb = () => {
     const [movies, setMovies] = useState([])
