@@ -9,6 +9,8 @@ import "../global.css";
 const MoviesDb = () => {
   const { data: movies, error, loading } = useFetch();
 
+  console.log(movies);
+
   function renderMovies(i) {
     return (
       <div className="col-md-auto m-4 poster" key={i.id}>
@@ -28,18 +30,18 @@ const MoviesDb = () => {
     <div className="container mt-4">
       <section className="row">{movies.map(renderMovies)}</section>
       {/* <div className="row">
-        <Link to={`/${movies}/${movies.id}`}>
-          <div className="mt-4 col poster">
-            <img
-              src={`http://image.tmdb.org/t/p/w500${movies.poster_path}`}
-              alt={movies.original_title}
-            />
-            <h2 className="text-primary bottom-left">
-              {movies.original_title}
-            </h2>
-          </div>
-        </Link>
-      </div> */}
+                  <Link to={`/${movies}/${movies.id}`}>
+                    <div className="mt-4 col poster">
+                      <img
+                        src={`http://image.tmdb.org/t/p/w500${movies.poster_path}`}
+                        alt={movies.original_title}
+                      />
+                      <h2 className="text-primary bottom-left">
+                        {movies.original_title}
+                      </h2>
+                    </div>
+                  </Link>
+                </div> */}
     </div>
   );
 };
