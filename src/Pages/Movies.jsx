@@ -6,7 +6,7 @@ import Error from "../components/Error/Erorr";
 import PageNotFound from "../PageNotFound";
 import "../global.css";
 
-const MoviesDb = () => {
+const MoviesDb = () => { 
   const { data: movies, error, loading } = useFetch();
 
   console.log(movies);
@@ -14,10 +14,12 @@ const MoviesDb = () => {
   function renderMovies(i) {
     return (
       <div className="col-md-auto m-4 poster" key={i.id}>
-        <img
-          src={`${BASE_POSTER_PATH}/w500${i.poster_path}`}
-          alt={i.original_title}
-        />
+
+          <img
+            src={`${BASE_POSTER_PATH}/w500${i.poster_path}`}
+            alt={i.original_title}
+          />
+
       </div>
     );
   }
