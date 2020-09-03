@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { URL } from "./util/utilty";
-const baseURL = process.env.REACT_APP_API_KEY;
-
-
 
 
 export default function useFetch(url) {

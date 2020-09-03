@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { BASE_POSTER_PATH } from "../services/util/utilty";
 import useFetch from "../services/useFetch";
 import Loader from "../components/Error/Loader";
 import Error from "../components/Error/Erorr";
@@ -7,19 +7,15 @@ import PageNotFound from "../PageNotFound";
 import "../global.css";
 
 const MoviesDb = () => {
-  const { original_title } = useParams();
-  const { data: movies, error, loading } = useFetch(original_title);
-  console.log(movies);
+  const { data: movies, error, loading } = useFetch();
 
   function renderMovies(i) {
     return (
       <div className="col-md-auto m-4 poster" key={i.id}>
-        <Link to={`/${original_title}/${i.id}`}>
-          <img
-            src={`http://image.tmdb.org/t/p/w500${i.poster_path}`}
-            alt={i.original_title}
-          />
-        </Link>
+        <img
+          src={`${BASE_POSTER_PATH}/w500${i.poster_path}`}
+          alt={i.original_title}
+        />
       </div>
     );
   }

@@ -13,6 +13,9 @@ const Header = () => {
         <Link className="navbar-brand" to="/">
           Movies store
         </Link>
+        <Link to="/detail" className="text-white" >
+          Detail
+        </Link>
 
         <NavLink
           to="/cart"
