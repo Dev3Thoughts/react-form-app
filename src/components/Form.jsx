@@ -1,43 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 
 const Form = () => {
-  const [notes, setNotes] = useState(null);
-  const [form, setForm] = useState({ reviews: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notes, setNotes] = useState(null)
+  const [form, setForm] = useState({ reviews: "" })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
-    fetchNotes();
-  }, []);
+    fetchNotes()
+  }, [])
 
   async function fetchNotes() {
-    setIsSubmitting(true);
-    const res = await fetch("/notes");
-    const data = await res.json();
-    setIsSubmitting(false);
-    setNotes(data);
+    setIsSubmitting(true)
+    const res = await fetch("/notes")
+    const data = await res.json()
+    setIsSubmitting(false)
+    setNotes(data)
   }
 
   const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const validate = () => {
-    let err = {};
+    let err = {}
     if (!form.reviews) {
-      err.reviews = "review is required";
+      err.reviews = "review is required"
     }
     if (!form.reviews.length > 20) {
-      err.reviews = "Title cannot be more than 40 characters";
+      err.reviews = "Title cannot be more than 40 characters"
     }
-    return err;
-  };
+    return err
+  }
 
-  const showError = () => {};
+  const showError = () => {}
 
-  console.log(form);
+  console.log(form)
 
   return (
     <div className="container">
@@ -69,7 +69,7 @@ const Form = () => {
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

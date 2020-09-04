@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { GiShoppingCart } from "react-icons/gi";
+import React from "react"
+import { Link } from "react-router-dom"
+import { GiShoppingCart } from "react-icons/gi"
 
 const Header = () => {
   return (
@@ -14,7 +14,7 @@ const Header = () => {
         </Link>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
