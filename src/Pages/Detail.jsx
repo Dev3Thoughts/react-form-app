@@ -6,6 +6,7 @@ import {
   baseURL,
   BASE_LANGUAGE_URL_PATH,
 } from "../services/util/utilty"
+import PageNotFound from "../PageNotFound"
 import Loader from "../components/Error/Loader"
 import Error from "../components/Error/Erorr"
 
@@ -37,26 +38,20 @@ export default function Detail() {
     init()
   }, [id])
 
+  if (data.length === 0) return <PageNotFound />
   if (error) return <Error />
   if (loading) return <Loader />
-
   return (
     <>
-      <div>
+      <div className="container mt-4">
         <img
           src={`${BASE_POSTER_PATH}/w500${data.poster_path}`}
           alt={data.original_title}
         />
-        <h1>{data.title}</h1>
+        <h2 className="mt-4 text-primary">{data.title}</h2>
+        <h5>Overview:</h5>
+        <p className="lead">{data.overview}</p>
       </div>
-      {/* {movie.map((movie) => (
-        <div key={movie.id} className="card-body">
-          <img
-            src={`${BASE_POSTER_PATH}/w500${movie.poster_path}`}
-            alt={movie.original_title}
-          />
-        </div>
-      ))} */}
     </>
   )
 }
