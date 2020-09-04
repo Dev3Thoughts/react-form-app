@@ -15,7 +15,6 @@ export default function Detail() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
   const { id } = useParams()
-  console.log(data)
 
   useEffect(() => {
     async function init() {
@@ -38,9 +37,9 @@ export default function Detail() {
     init()
   }, [id])
 
-  if (data.length === 0) return <PageNotFound />
-  if (error) return <Error />
   if (loading) return <Loader />
+  if (error) return <Error />
+  if (data.length === 0) return <PageNotFound />
   return (
     <>
       <div className="container mt-4">

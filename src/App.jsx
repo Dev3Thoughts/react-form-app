@@ -8,7 +8,7 @@ import Cart from "./Pages/Cart"
 
 function App() {
   return (
-    <div>
+    <>
       <main>
         <Router>
           <Header />
@@ -28,7 +28,7 @@ function App() {
           </Switch>
         </Router>
       </main>
-    </div>
+    </>
   )
 }
 
