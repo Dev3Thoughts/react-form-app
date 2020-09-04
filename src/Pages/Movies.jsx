@@ -1,4 +1,5 @@
 import React from "react"
+import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { BASE_POSTER_PATH } from "../services/util/utilty"
 import useFetch from "../services/useFetch"
@@ -7,18 +8,24 @@ import Error from "../components/Error/Erorr"
 import PageNotFound from "../PageNotFound"
 import "../global.css"
 
-const MoviesDb = () => {
+export default function MoviesDb() {
   const { data: movies, error, loading } = useFetch()
 
   function renderMovies(i) {
     return (
       <div className="col-md-auto m-4 poster" key={i.id}>
-        <Link to={`/detail/${i.id}`}>
-          <img
-            src={`${BASE_POSTER_PATH}/w500${i.poster_path}`}
-            alt={i.original_title}
-          />
-        </Link>
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ ease: "easeOut", duration: 0.4 }}
+        >
+          <Link to={`/detail/${i.id}`}>
+            <img
+              src={`${BASE_POSTER_PATH}/w500${i.poster_path}`}
+              alt={i.original_title}
+            />
+          </Link>
+        </motion.div>
       </div>
     )
   }
@@ -33,5 +40,3 @@ const MoviesDb = () => {
     </div>
   )
 }
-
-export default MoviesDb

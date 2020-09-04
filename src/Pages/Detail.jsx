@@ -41,16 +41,19 @@ export default function Detail() {
   if (error) return <Error />
   if (data.length === 0) return <PageNotFound />
   return (
-    <>
-      <div className="container mt-4">
-        <img
-          src={`${BASE_POSTER_PATH}/w500${data.poster_path}`}
-          alt={data.original_title}
-        />
-        <h2 className="mt-4 text-primary">{data.title}</h2>
-        <h5>Overview:</h5>
+    <div className="container mt-4 d-flex">
+      <img
+        style={{ maxWidth: "450px" }}
+        src={`${BASE_POSTER_PATH}/w500${data.poster_path}`}
+        alt={data.original_title}
+      />
+      <div className="ml-4">
+        <h2 className="text-primary">{data.title}</h2>
+        <h5>Overview</h5>
         <p className="lead">{data.overview}</p>
+        <h5>Release:</h5>
+        <p className="lead">{data.release_date}</p>
       </div>
-    </>
+    </div>
   )
 }

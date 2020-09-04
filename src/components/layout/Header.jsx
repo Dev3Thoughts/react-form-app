@@ -7,7 +7,7 @@ const Header = () => {
     <header>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <Link className="navbar-brand" to="/">
-          Movies store
+          Movie store
         </Link>
         <Link to="/cart" className="text-white" style={{ marginLeft: "auto" }}>
           <GiShoppingCart style={{ fontSize: "2rem" }} />
