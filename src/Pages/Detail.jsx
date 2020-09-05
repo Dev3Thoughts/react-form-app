@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import {
   BASE_POSTER_PATH,
   BASE_MOVIE_PATH,
@@ -15,6 +15,7 @@ export default function Detail() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
   const { id } = useParams()
+  const history = useHistory()
 
   useEffect(() => {
     async function init() {
@@ -37,6 +38,10 @@ export default function Detail() {
     init()
   }, [id])
 
+  function handleClick() {
+    history.push("/cart")
+  }
+
   if (loading) return <Loader />
   if (error) return <Error />
   if (data.length === 0) return <PageNotFound />
@@ -53,6 +58,13 @@ export default function Detail() {
         <p className="lead">{data.overview}</p>
         <h5>Release:</h5>
         <p className="lead">{data.release_date}</p>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          onClick={handleClick}
+        >
+          <span className="text-white"> Buy $9.99</span>
+        </button>
       </div>
     </div>
   )
