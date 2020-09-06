@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Header from "./components/layout/Header"
 import PageNotFound from "./PageNotFound"
@@ -7,6 +7,22 @@ import Detail from "./Pages/Detail"
 import Cart from "./Pages/Cart"
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  function addToCart(id) {
+    setCart((items) => {
+      const itemInCart = items.find((i) => i.id === id)
+      if (itemInCart) {
+        // return new array with maching item replaced
+        return items.map((i) =>
+          console.log(i.id === id ? { ...i, quantity: i.quantity + 1 } : i)
+        );
+      } else {
+        return [...items, { id, quantity: 1 }];
+      }
+    })
+  }
+
   return (
     <>
       <main>
@@ -17,10 +33,10 @@ function App() {
               <Movies />
             </Route>
             <Route path="/detail/:id">
-              <Detail />
+              <Detail addToCart={addToCart} />
             </Route>
             <Route path="/cart">
-              <Cart />
+              <Cart cart={cart} />
             </Route>
             <Route path="*">
               <PageNotFound />

@@ -1,9 +1,11 @@
 import React from "react"
 
-const Cart = () => {
+const Cart = ({ cart }) => {
   return (
     <div className="container mt-4">
-      <h1>Cart</h1>
+      {cart.map((i) => (
+        <div key={i.id}>Item number {i.id}</div>
+      ))}
     </div>
   )
 }

@@ -10,7 +10,7 @@ import PageNotFound from "../PageNotFound"
 import Loader from "../components/Error/Loader"
 import Error from "../components/Error/Erorr"
 
-export default function Detail() {
+export default function Detail(props) {
   const [data, setData] = useState([])
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -38,10 +38,6 @@ export default function Detail() {
     init()
   }, [id])
 
-  function handleClick() {
-    history.push("/cart")
-  }
-
   if (loading) return <Loader />
   if (error) return <Error />
   if (data.length === 0) return <PageNotFound />
@@ -60,10 +56,13 @@ export default function Detail() {
         <p className="lead">{data.release_date}</p>
         <button
           type="button"
-          class="btn btn-outline-success"
-          onClick={handleClick}
+          className="btn btn-outline-success"
+          onClick={() => {
+            props.addToCart(id)
+            history.push("/cart")
+          }}
         >
-          <span className="text-white"> Buy $9.99</span>
+          <strong className="text-white">Buy $9.99</strong>
         </button>
       </div>
     </div>
