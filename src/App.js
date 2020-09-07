@@ -9,6 +9,7 @@ import Cart from "./Pages/Cart"
 function App() {
   const [cart, setCart] = useState([]);
 
+
   function addToCart(id) {
     setCart((items) => {
       const itemInCart = items.find((i) => i.id === id)
@@ -22,6 +23,7 @@ function App() {
       }
     })
   }
+
 
   return (
     <>

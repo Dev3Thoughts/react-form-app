@@ -33,6 +33,7 @@ const Cart = ({ cart }) => {
           <button
             type="button"
             className="ml-2 btn btn-outline-danger text-white"
+            onClick={() => console.log("clicked")}
           >
             Remove
           </button>
@@ -47,6 +48,7 @@ const Cart = ({ cart }) => {
 
   return (
     <div className="container mt-4">
+      <h1>Cart</h1>
       <section className="row">{movies.map(renderItem)}</section>
     </div>
   )
