@@ -13,7 +13,7 @@ export default function MoviesDb() {
 
   function renderMovies(i) {
     return (
-      <div className="col-md-auto m-4 poster" key={i.id}>
+      <div className="col-md-auto m-4" key={i.id}>
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}

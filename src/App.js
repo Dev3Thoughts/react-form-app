@@ -15,7 +15,7 @@ function App() {
       if (itemInCart) {
         // return new array with maching item replaced
         return items.map((i) =>
-          console.log(i.id === id ? { ...i, quantity: i.quantity + 1 } : i)
+          i.id === id ? { ...i, quantity: i.quantity + 1 } : i
         );
       } else {
         return [...items, { id, quantity: 1 }];

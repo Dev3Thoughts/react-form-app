@@ -10,5 +10,5 @@ export const BASE_BACKDROP_PATH = "https://image.tmdb.org/t/p/original"
 
 export const URL = Object.freeze({
   // API_URL: `https://api.themoviedb.org/3/movie/550?api_key=${baseURL}&language=en-US`
-  API_URL: `${BASE_MOVIE_PATH}popular?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&page=2`,
+  API_URL: `${BASE_MOVIE_PATH}popular?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&page=1`,
 })

@@ -50,20 +50,23 @@ export default function Detail(props) {
       />
       <div className="ml-4">
         <h2 className="text-primary">{data.title}</h2>
-        <h5>Overview</h5>
+        <strong>Overview</strong>
         <p className="lead">{data.overview}</p>
-        <h5>Release:</h5>
+        <strong>Release:</strong>
         <p className="lead">{data.release_date}</p>
-        <button
-          type="button"
-          className="btn btn-outline-success"
-          onClick={() => {
-            props.addToCart(id)
-            history.push("/cart")
-          }}
-        >
-          <strong className="text-white">Buy $9.99</strong>
-        </button>
+        <div className="d-block">
+          <button
+            type="button"
+            className="btn btn-outline-success text-white"
+            onClick={() => {
+              props.addToCart(id)
+              history.push("/cart")
+            }}
+          >
+            Add To Cart
+          </button>
+          <strong className="ml-2 text-white">$9.99</strong>
+        </div>
       </div>
     </div>
   )
