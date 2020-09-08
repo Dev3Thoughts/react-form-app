@@ -34,7 +34,7 @@ const Cart = ({ cart }) => {
             className="ml-2 btn btn-outline-danger text-white"
             onClick={() => console.log()}
           >
-            Remove
+            X
           </button>
         </div>
       </div>
