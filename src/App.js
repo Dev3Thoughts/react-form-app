@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Header from "./components/layout/Header"
 import PageNotFound from "./PageNotFound"
@@ -7,8 +7,19 @@ import Detail from "./Pages/Detail"
 import Cart from "./Pages/Cart"
 
 function App() {
-  const [cart, setCart] = useState([]);
 
+  const [cart, setCart] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("cart")) ?? []
+    } catch {
+      console.error("The cart can not be parsed in localStorage");
+      return []
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }, [cart])
 
   function addToCart(id) {
     setCart((items) => {
@@ -38,7 +49,7 @@ function App() {
               <Detail addToCart={addToCart} />
             </Route>
             <Route path="/cart">
-              <Cart cart={cart}  />
+              <Cart cart={cart} />
             </Route>
             <Route path="*">
               <PageNotFound />
