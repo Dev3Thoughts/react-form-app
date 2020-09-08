@@ -29,7 +29,7 @@ function App() {
     <>
       <main>
         <Router>
-          <Header />
+          <Header cart={cart} />
           <Switch>
             <Route exact path="/">
               <Movies />
@@ -38,7 +38,7 @@ function App() {
               <Detail addToCart={addToCart} />
             </Route>
             <Route path="/cart">
-              <Cart cart={cart} />
+              <Cart cart={cart}  />
             </Route>
             <Route path="*">
               <PageNotFound />

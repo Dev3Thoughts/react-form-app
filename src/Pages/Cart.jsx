@@ -5,7 +5,6 @@ import {
   BASE_POSTER_PATH,
 } from "../services/util/utilty"
 import useFetchAll from "../services/useFetchAll"
-import PageNotFound from "../PageNotFound"
 import Loader from "../components/Error/Loader"
 import Error from "../components/Error/Erorr"
 
@@ -33,7 +32,7 @@ const Cart = ({ cart }) => {
           <button
             type="button"
             className="ml-2 btn btn-outline-danger text-white"
-            onClick={() => console.log("clicked")}
+            onClick={() => console.log()}
           >
             Remove
           </button>
@@ -44,11 +43,19 @@ const Cart = ({ cart }) => {
 
   if (loading) return <Loader />
   if (error) return <Error />
-  if (movies.length === 0) return <PageNotFound />
+
+  const numItems = cart.reduce(
+    (prevValue, curValue) => prevValue + curValue.quantity,
+    0
+  )
 
   return (
     <div className="container mt-4">
-      <h1>Cart</h1>
+      <h1 className="text-info">
+        {numItems === 0
+          ? "Your cart is empty"
+          : `${numItems} Item${numItems > 1 ? "'s" : ""}`}
+      </h1>
       <section className="row">{movies.map(renderItem)}</section>
     </div>
   )
