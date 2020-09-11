@@ -1,10 +1,10 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { BASE_POSTER_PATH } from "../services/util/utilty"
+import { BASE_POSTER_PATH } from "../services/util/utility"
 import useFetch from "../services/useFetch"
 import Loader from "../components/Error/Loader"
-import Error from "../components/Error/Erorr"
+import Error from "../components/Error/Error"
 import PageNotFound from "../PageNotFound"
 import "../global.css"
 

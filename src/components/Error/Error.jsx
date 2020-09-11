@@ -1,6 +1,6 @@
 import React from "react"
 
-const Erorr = () => {
+const Error = () => {
   return (
     <div className="text-danger justify-content-center row mt-4">
       <h4>API Error...</h4>
@@ -8,4 +8,4 @@ const Erorr = () => {
   )
 }
 
-export default Erorr
+export default Error

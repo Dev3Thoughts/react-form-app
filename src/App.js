@@ -25,7 +25,7 @@ function App() {
     setCart((items) => {
       const itemInCart = items.find((i) => i.id === id)
       if (itemInCart) {
-        // return new array with maching item replaced
+        // return new array with matching item replaced
         return items.map((i) =>
           i.id === id ? { ...i, quantity: i.quantity + 1 } : i
         );

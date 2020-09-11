@@ -5,10 +5,10 @@ import {
   BASE_MOVIE_PATH,
   baseURL,
   BASE_LANGUAGE_URL_PATH,
-} from "../services/util/utilty"
+} from "../services/util/utility"
 import PageNotFound from "../PageNotFound"
 import Loader from "../components/Error/Loader"
-import Error from "../components/Error/Erorr"
+import Error from "../components/Error/Error"
 
 export default function Detail(props) {
   const [data, setData] = useState([])
@@ -65,7 +65,7 @@ export default function Detail(props) {
           >
             Add To Cart
           </button>
-          <strong className="ml-2 text-white">$9.99</strong>
+          <strong className="ml-2 text-white">$0.00</strong>
         </div>
       </div>
     </div>

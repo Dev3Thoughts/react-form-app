@@ -3,10 +3,10 @@ import {
   BASE_LANGUAGE_URL_PATH,
   baseURL,
   BASE_POSTER_PATH,
-} from "../services/util/utilty"
+} from "../services/util/utility"
 import useFetchAll from "../services/useFetchAll"
 import Loader from "../components/Error/Loader"
-import Error from "../components/Error/Erorr"
+import Error from "../components/Error/Error"
 
 const Cart = ({ cart }) => {
   const urls = cart.map(
