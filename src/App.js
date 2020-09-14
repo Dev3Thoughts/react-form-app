@@ -7,7 +7,6 @@ import Detail from "./Pages/Detail"
 import Cart from "./Pages/Cart"
 
 function App() {
-
   const [cart, setCart] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("cart")) ?? []
@@ -35,6 +34,15 @@ function App() {
     })
   }
 
+  // const filteredProducts = (id, quantity) => {
+  //   debugger
+  //   setCart((items) => {
+  //     debugger
+  //     const d = items.filter((i) => i.id !== id)
+  //     console.log(d);
+  //     return d.map((i) => i.id === id ? { ...i, quantity } : i)
+  //   })
+  // }
 
   return (
     <>
