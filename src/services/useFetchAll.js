@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {
   BASE_MOVIE_PATH
 } from "./util/utility"
+
 export default function useFetchAll(urls) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
