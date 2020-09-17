@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from "react"
-const [error, setError] = useState(null)
-const [loading, setLoading] = useState(true)
+import React, { useState, useEffect } from "react";
+const [error, setError] = useState(null);
+const [loading, setLoading] = useState(true);
 const Search = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
   //  const [error, setError] = useState(null)
   // const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function init() {
       try {
-        const res = await fetch(URL.API_URL)
+        const res = await fetch(URL.API_URL);
         if (res.ok) {
-          const json = await res.json()
-          setData(json.results)
+          const json = await res.json();
+          setData(json.results);
         } else {
-          throw res
+          throw res;
         }
       } catch (e) {
-        setError(e)
+        setError(e);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     }
-    init()
-  }, [])
+    init();
+  }, []);
 
   function handelSubmit(e) {
-    console.log(e.target.value)
+    console.log(e.target.value);
   }
   return (
     <div>
@@ -37,7 +37,7 @@ const Search = () => {
         placeholder="Search"
       ></input>
     </div>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

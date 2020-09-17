@@ -1,8 +1,8 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import ErrorBoundary from "./ErrorBoundary"
-import "bootswatch/dist/superhero/bootstrap.min.css"
-import App from "./App"
+import React from "react";
+import ReactDOM from "react-dom";
+import ErrorBoundary from "./ErrorBoundary";
+import "bootswatch/dist/superhero/bootstrap.min.css";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,4 +11,4 @@ ReactDOM.render(
     </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById("root")
-)
+);

@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import Header from "./components/layout/Header"
-import PageNotFound from "./PageNotFound"
-import Movies from "./Pages/Movies"
-import Detail from "./Pages/Detail"
-import Cart from "./Pages/Cart"
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Header from "./components/layout/Header";
+import PageNotFound from "./PageNotFound";
+import Movies from "./Pages/Movies";
+import Detail from "./Pages/Detail";
+import Cart from "./Pages/Cart";
 
 function App() {
   const [cart, setCart] = useState(() => {
     try {
-      return JSON.parse(localStorage.getItem("cart")) ?? []
+      return JSON.parse(localStorage.getItem("cart")) ?? [];
     } catch {
       console.error("The cart can not be parsed in localStorage");
-      return []
+      return [];
     }
   });
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart))
-  }, [cart])
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   function addToCart(id) {
     setCart((items) => {
-      const itemInCart = items.find((i) => i.id === id)
+      const itemInCart = items.find((i) => i.id === id);
       if (itemInCart) {
         // return new array with matching item replaced
         return items.map((i) =>
@@ -31,7 +31,7 @@ function App() {
       } else {
         return [...items, { id, quantity: 1 }];
       }
-    })
+    });
   }
 
   // const filteredProducts = (id, quantity) => {
@@ -66,7 +66,7 @@ function App() {
         </Router>
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

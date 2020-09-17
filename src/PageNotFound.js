@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function PageNotFound() {
   return (
@@ -9,5 +9,5 @@ export default function PageNotFound() {
         &#8592; Go Back to home page{" "}
       </Link>
     </div>
-  )
+  );
 }

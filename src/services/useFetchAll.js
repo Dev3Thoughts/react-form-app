@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  BASE_MOVIE_PATH
-} from "./util/utility"
+import { BASE_MOVIE_PATH } from "./util/utility";
 
 export default function useFetchAll(urls) {
   const [data, setData] = useState(null);
@@ -10,7 +8,7 @@ export default function useFetchAll(urls) {
 
   useEffect(() => {
     const promises = urls.map((url) =>
-      fetch(`${BASE_MOVIE_PATH}` + url ).then((response) => {
+      fetch(`${BASE_MOVIE_PATH}` + url).then((response) => {
         if (response.ok) return response.json();
         throw response;
       })

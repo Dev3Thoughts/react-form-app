@@ -1,46 +1,46 @@
-import React, { useState, useEffect } from "react"
-import { useParams, useHistory } from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import {
   BASE_POSTER_PATH,
   BASE_MOVIE_PATH,
   baseURL,
   BASE_LANGUAGE_URL_PATH,
-} from "../services/util/utility"
-import PageNotFound from "../PageNotFound"
-import Loader from "../components/Error/Loader"
-import Error from "../components/Error/Error"
+} from "../services/util/utility";
+import PageNotFound from "../PageNotFound";
+import Loader from "../components/Error/Loader";
+import Error from "../components/Error/Error";
 
 export default function Detail(props) {
-  const [data, setData] = useState([])
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const { id } = useParams()
-  const history = useHistory()
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     async function init() {
       try {
         const res = await fetch(
           `${BASE_MOVIE_PATH}${id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
-        )
+        );
         if (res.ok) {
-          const json = await res.json()
-          setData(json)
+          const json = await res.json();
+          setData(json);
         } else {
-          throw res
+          throw res;
         }
       } catch (e) {
-        setError(e)
+        setError(e);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     }
-    init()
-  }, [id])
+    init();
+  }, [id]);
 
-  if (loading) return <Loader />
-  if (error) return <Error />
-  if (data.length === 0) return <PageNotFound />
+  if (loading) return <Loader />;
+  if (error) return <Error />;
+  if (data.length === 0) return <PageNotFound />;
   return (
     <div className="container mt-4 d-flex">
       <img
@@ -59,8 +59,8 @@ export default function Detail(props) {
             type="button"
             className="btn btn-outline-success text-white"
             onClick={() => {
-              props.addToCart(id)
-              history.push("/cart")
+              props.addToCart(id);
+              history.push("/cart");
             }}
           >
             Add To Cart
@@ -69,5 +69,5 @@ export default function Detail(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

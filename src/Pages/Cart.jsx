@@ -1,24 +1,24 @@
-import React from "react"
+import React from "react";
 import {
   BASE_LANGUAGE_URL_PATH,
   baseURL,
   BASE_POSTER_PATH,
-} from "../services/util/utility"
-import useFetchAll from "../services/useFetchAll"
-import Loader from "../components/Error/Loader"
-import Error from "../components/Error/Error"
+} from "../services/util/utility";
+import useFetchAll from "../services/useFetchAll";
+import Loader from "../components/Error/Loader";
+import Error from "../components/Error/Error";
 
 const Cart = ({ cart }) => {
   const urls = cart.map(
     (i) => `${i.id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
-  )
-  const { data: movies, loading, error } = useFetchAll(urls)
+  );
+  const { data: movies, loading, error } = useFetchAll(urls);
 
   function renderItem(cartItem) {
-    const { id } = cartItem
+    const { id } = cartItem;
     const { title, poster_path, release_date } = movies.find(
       (p) => p.id === parseInt(id)
-    )
+    );
     return (
       <div key={cartItem.id} className="m-4">
         <img
@@ -38,16 +38,16 @@ const Cart = ({ cart }) => {
           </button>
         </div>
       </div>
-    )
+    );
   }
 
-  if (loading) return <Loader />
-  if (error) return <Error />
+  if (loading) return <Loader />;
+  if (error) return <Error />;
 
   const numItems = cart.reduce(
     (prevValue, curValue) => prevValue + curValue.quantity,
     0
-  )
+  );
 
   return (
     <div className="container mt-4">
@@ -58,7 +58,7 @@ const Cart = ({ cart }) => {
       </h1>
       <section className="row">{movies.map(renderItem)}</section>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

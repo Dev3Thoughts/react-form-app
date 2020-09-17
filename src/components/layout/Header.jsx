@@ -1,12 +1,12 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { GiShoppingCart } from "react-icons/gi"
+import React from "react";
+import { Link } from "react-router-dom";
+import { GiShoppingCart } from "react-icons/gi";
 
 const Header = ({ cart }) => {
   const numItems = cart.reduce(
     (prevValue, curValue) => prevValue + curValue.quantity,
     0
-  )
+  );
 
   return (
     <header>
@@ -22,7 +22,7 @@ const Header = ({ cart }) => {
         </Link>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
