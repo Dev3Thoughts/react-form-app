@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/layout/Header";
 import PageNotFound from "./PageNotFound";
@@ -8,19 +8,19 @@ import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
 
 function App() {
-  const [cart, setCart] = useState([])
-  // const [cart, setCart] = useState(() => {
-  //   try {
-  //     return JSON.parse(localStorage.getItem("cart")) ?? [];
-  //   } catch {
-  //     console.error("The cart can not be parsed in localStorage");
-  //     return [];
-  //   }
-  // });
+  // const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("cart")) ?? [];
+    } catch {
+      console.error("The cart can not be parsed in localStorage");
+      return [];
+    }
+  });
 
-  // useEffect(() => {
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-  // }, [cart]);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   function addToCart(id) {
     setCart((items) => {
@@ -37,7 +37,7 @@ function App() {
   }
 
   function emptyCart() {
-    setCart([])
+    setCart([]);
   }
   return (
     <>
