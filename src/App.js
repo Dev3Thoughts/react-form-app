@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/layout/Header";
 import PageNotFound from "./PageNotFound";
 import Movies from "./Pages/Movies";
 import Detail from "./Pages/Detail";
 import Cart from "./Pages/Cart";
+import Checkout from "./Pages/Checkout";
 
 function App() {
-  const [cart, setCart] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem("cart")) ?? [];
-    } catch {
-      console.error("The cart can not be parsed in localStorage");
-      return [];
-    }
-  });
+  const [cart, setCart] = useState([])
+  // const [cart, setCart] = useState(() => {
+  //   try {
+  //     return JSON.parse(localStorage.getItem("cart")) ?? [];
+  //   } catch {
+  //     console.error("The cart can not be parsed in localStorage");
+  //     return [];
+  //   }
+  // });
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+  // useEffect(() => {
+  //   localStorage.setItem("cart", JSON.stringify(cart));
+  // }, [cart]);
 
   function addToCart(id) {
     setCart((items) => {
@@ -34,37 +36,28 @@ function App() {
     });
   }
 
-  // const filteredProducts = (id, quantity) => {
-  //   debugger
-  //   setCart((items) => {
-  //     debugger
-  //     const d = items.filter((i) => i.id !== id)
-  //     console.log(d);
-  //     return d.map((i) => i.id === id ? { ...i, quantity } : i)
-  //   })
-  // }
-
   return (
     <>
-      <main>
-        <Router>
-          <Header cart={cart} />
-          <Switch>
-            <Route exact path="/">
-              <Movies />
-            </Route>
-            <Route path="/detail/:id">
-              <Detail addToCart={addToCart} />
-            </Route>
-            <Route path="/cart">
-              <Cart cart={cart} />
-            </Route>
-            <Route path="*">
-              <PageNotFound />
-            </Route>
-          </Switch>
-        </Router>
-      </main>
+      <Router>
+        <Header cart={cart} />
+        <Switch>
+          <Route exact path="/">
+            <Movies />
+          </Route>
+          <Route path="/detail/:id">
+            <Detail addToCart={addToCart} />
+          </Route>
+          <Route path="/cart">
+            <Cart cart={cart} />
+          </Route>
+          <Route path="/checkout">
+            <Checkout cart={cart} />
+          </Route>
+          <Route path="*">
+            <PageNotFound />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }

@@ -10,7 +10,13 @@ export default function Checkout({ cart }) {
   const [address, setAddress] = useState(emptyAddress);
 
   function handleChange(e) {
-    // TODO
+    e.persist();
+    setAddress((curAddress) => {
+      return {
+        ...curAddress,
+        [e.target.id]: e.target.value,
+      };
+    });
   }
 
   function handleBlur(event) {
@@ -22,7 +28,7 @@ export default function Checkout({ cart }) {
   }
 
   return (
-    <>
+    <div className="container mt-4">
       <h1>Shipping Info</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -62,6 +68,6 @@ export default function Checkout({ cart }) {
           />
         </div>
       </form>
-    </>
+    </div>
   );
 }

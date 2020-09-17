@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   BASE_LANGUAGE_URL_PATH,
   baseURL,
@@ -9,10 +10,17 @@ import Loader from "../components/Error/Loader";
 import Error from "../components/Error/Error";
 
 const Cart = ({ cart }) => {
+  const history = useHistory();
   const urls = cart.map(
     (i) => `${i.id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
   );
   const { data: movies, loading, error } = useFetchAll(urls);
+
+  // const filteredProducts = (id) => {
+  //   const removeItem = movies.filter((i) => i.id !== id);
+  //   debugger;
+  //   return setMovies(removeItem);
+  // };
 
   function renderItem(cartItem) {
     const { id } = cartItem;
@@ -57,6 +65,14 @@ const Cart = ({ cart }) => {
           : `${numItems} Item${numItems > 1 ? "'s" : ""}`}
       </h1>
       <section className="row">{movies.map(renderItem)}</section>
+      {cart.length > 0 && (
+        <button
+          className="btn btn-primary"
+          onClick={() => history.push("/checkout")}
+        >
+          Check out
+        </button>
+      )}
     </div>
   );
 };
