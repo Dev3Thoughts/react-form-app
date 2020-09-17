@@ -35,7 +35,7 @@ export default function Checkout({ cart, emptyCart }) {
   }
 
   function handleBlur(event) {
-     event.persist();
+    event.persist();
     setTouched((cur) => {
       return { ...cur, [event.target.id]: true };
     });
