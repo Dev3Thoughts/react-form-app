@@ -1,9 +1,4 @@
 {
-  "notes": [
-    {
-      "id": 1,
-      "title": "jason server",
-      "description": "this is a jason server"
-    }
-  ]
+  "products": [],
+  "shippingAddress": []
 }

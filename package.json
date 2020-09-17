@@ -1,5 +1,5 @@
 {
-  "name": "react-moviedb-app",
+  "name": "react-moviedb-store",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,9 +19,9 @@
     "react-spinners": "^0.9.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "json-server": "json-server --watch db.json --port 5000",
-    "dev": "concurrently \"npm start\" \"npm run json-server\"",
+    "start": "run-p start-app json-server",
+    "start-app": "cross-env REACT_APP_API_BASE_URL=http://localhost:5002/ react-scripts start",
+    "json-server": "json-server --port 5002 --watch db.json",
     "format": "prettier \"src/**/*.{js,jsx,html}\" --write",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,9 +48,9 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
     "json-server": "^0.16.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.1.1"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }

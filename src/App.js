@@ -36,6 +36,9 @@ function App() {
     });
   }
 
+  function emptyCart() {
+    setCart([])
+  }
   return (
     <>
       <Router>
@@ -51,7 +54,7 @@ function App() {
             <Cart cart={cart} />
           </Route>
           <Route path="/checkout">
-            <Checkout cart={cart} />
+            <Checkout cart={cart} emptyCart={emptyCart} />
           </Route>
           <Route path="*">
             <PageNotFound />
