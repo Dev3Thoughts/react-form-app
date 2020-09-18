@@ -58,7 +58,7 @@ export default function Detail() {
         <div className="d-block">
           <button
             type="button"
-            className="btn btn-outline-success text-white"
+            className="btn btn-success text-white"
             onClick={() => {
               dispatch({ type: "add", id });
               history.push("/cart");

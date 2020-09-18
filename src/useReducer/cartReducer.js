@@ -22,7 +22,7 @@ export default function cartReducer(currentState, action) {
     }
     case ACTIONS.REMOVE: {
       const { id } = action;
-      return currentState.filter((i) => i.id === id);
+      return currentState.filter((i) => i.id !== id);
     }
 
     default:
