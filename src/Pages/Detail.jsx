@@ -9,8 +9,9 @@ import {
 import PageNotFound from "../PageNotFound";
 import Loader from "../components/Error/Loader";
 import Error from "../components/Error/Error";
-
-export default function Detail(props) {
+import { useCart } from "../useContext/cartContext";
+export default function Detail() {
+  const { dispatch } = useCart();
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -59,7 +60,7 @@ export default function Detail(props) {
             type="button"
             className="btn btn-outline-success text-white"
             onClick={() => {
-              props.dispatch({ type: "add", id });
+              dispatch({ type: "add", id });
               history.push("/cart");
             }}
           >

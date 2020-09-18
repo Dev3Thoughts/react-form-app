@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { GiShoppingCart } from "react-icons/gi";
-
-const Header = ({ cart }) => {
+import { useCart } from "../../useContext/cartContext";
+const Header = () => {
+  const { cart } = useCart();
   const numItems = cart.reduce(
     (prevValue, curValue) => prevValue + curValue.quantity,
     0

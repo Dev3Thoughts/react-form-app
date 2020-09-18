@@ -1,6 +1,5 @@
-import React, { useReducer, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import cartReducer from "./useReducer/cartReducer";
 import Header from "./components/layout/Header";
 import PageNotFound from "./PageNotFound";
 import Movies from "./Pages/Movies";
@@ -8,37 +7,23 @@ import Detail from "./Pages/Detail";
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
 
-let initalCart;
-try {
-  initalCart = JSON.parse(localStorage.getItem("cart")) ?? [];
-} catch {
-  console.error("The cart can not be parsed in localStorage");
-  initalCart = [];
-}
-
 function App() {
-  const [cart, dispatch] = useReducer(cartReducer, initalCart);
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
   return (
     <>
       <Router>
-        <Header cart={cart} />
+        <Header />
         <Switch>
           <Route exact path="/">
             <Movies />
           </Route>
           <Route path="/detail/:id">
-            <Detail dispatch={dispatch} />
+            <Detail />
           </Route>
           <Route path="/cart">
-            <Cart cart={cart} dispatch={dispatch} />
+            <Cart />
           </Route>
           <Route path="/checkout">
-            <Checkout dispatch={dispatch} />
+            <Checkout />
           </Route>
           <Route path="*">
             <PageNotFound />

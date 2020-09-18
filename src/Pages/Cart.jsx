@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useCart } from "../useContext/cartContext";
 import {
   BASE_LANGUAGE_URL_PATH,
   baseURL,
@@ -9,7 +10,8 @@ import useFetchAll from "../services/useFetchAll";
 import Loader from "../components/Error/Loader";
 import Error from "../components/Error/Error";
 
-const Cart = ({ cart, dispatch }) => {
+const Cart = () => {
+  const { cart, dispatch } = useCart();
   const history = useHistory();
   const urls = cart.map(
     (i) => `${i.id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
