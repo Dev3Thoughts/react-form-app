@@ -59,7 +59,7 @@ export default function Detail(props) {
             type="button"
             className="btn btn-outline-success text-white"
             onClick={() => {
-              props.addToCart(id);
+              props.dispatch({type: "add", id});
               history.push("/cart");
             }}
           >
