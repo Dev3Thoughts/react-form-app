@@ -20,8 +20,9 @@ const Cart = () => {
       </h1>
 
       {cart.map((i) => (
-        <div key={i.id}>
+        <div key={i.id} className="border border p-2 m-2">
           <h3 className="text-primary mt-2">{i.id}</h3>
+          <h3 className="text-primary mt-2">title: {i.title}</h3>
           <h3 className="text-primary mt-2">{i.quantity}</h3>
           <button
             type="button"
@@ -32,16 +33,16 @@ const Cart = () => {
           >
             X
           </button>
+          {cart.length > 0 && (
+            <button
+              className="btn btn-primary m-4"
+              onClick={() => history.push("/checkout")}
+            >
+              Check out
+            </button>
+          )}
         </div>
       ))}
-      {cart.length > 0 && (
-        <button
-          className="btn btn-primary"
-          onClick={() => history.push("/checkout")}
-        >
-          Check out
-        </button>
-      )}
     </div>
   );
 };
