@@ -9,18 +9,17 @@ import useFetchAll from "../services/useFetchAll";
 import Loader from "../components/Error/Loader";
 import Error from "../components/Error/Error";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, dispatch }) => {
   const history = useHistory();
   const urls = cart.map(
     (i) => `${i.id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
   );
-  const { data: movies, loading, error } = useFetchAll(urls);
+  const { data: movies, setData, loading, error } = useFetchAll(urls);
 
-  // const filteredProducts = (id) => {
-  //   const removeItem = movies.filter((i) => i.id !== id);
-  //   debugger;
-  //   return setMovies(removeItem);
-  // };
+  const filteredProducts = (id) => {
+    const removeItem = movies.filter((i) => i.id !== id);
+    return setData(removeItem);
+  };
 
   function renderItem(cartItem) {
     const { id } = cartItem;
@@ -40,7 +39,10 @@ const Cart = ({ cart }) => {
           <button
             type="button"
             className="ml-2 btn btn-outline-danger text-white"
-            onClick={() => console.log()}
+            // onClick={() => dispatch({ type: "remove", id })}
+            onClick={() => {
+              filteredProducts(id, dispatch({ type: "remove", id }));
+            }}
           >
             X
           </button>

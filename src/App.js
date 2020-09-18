@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import cartReducer from "./useReducer/cartReducer"
+import cartReducer from "./useReducer/cartReducer";
 import Header from "./components/layout/Header";
 import PageNotFound from "./PageNotFound";
 import Movies from "./Pages/Movies";
@@ -17,12 +17,11 @@ try {
 }
 
 function App() {
-  const [cart, dispatch] = useReducer(cartReducer, initalCart)
+  const [cart, dispatch] = useReducer(cartReducer, initalCart);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-
 
   return (
     <>
@@ -36,7 +35,7 @@ function App() {
             <Detail dispatch={dispatch} />
           </Route>
           <Route path="/cart">
-            <Cart cart={cart} />
+            <Cart cart={cart} dispatch={dispatch} />
           </Route>
           <Route path="/checkout">
             <Checkout dispatch={dispatch} />

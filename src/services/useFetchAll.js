@@ -24,5 +24,5 @@ export default function useFetchAll(urls) {
     // eslint-disable-next-line
   }, []);
 
-  return { data, loading, error };
+  return { data, setData, loading, error };
 }
