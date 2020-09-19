@@ -17,7 +17,6 @@ const Cart = () => {
   const urls = cart.map(
     (i) => `${i.id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
   );
-
   const { data: movies, loading, error } = useFetchAll(urls);
 
   function rederItems(itemInCart) {
@@ -39,7 +38,7 @@ const Cart = () => {
             <strong>Title:</strong> {title}
           </p>
           <p>
-            <strong>Item ID:</strong> {id}
+            <strong>Item number:</strong> {id}
           </p>
           <button
             type="button"
@@ -53,7 +52,7 @@ const Cart = () => {
 
           {cart.length > 0 && (
             <button
-              className="btn btn-success m-2"
+              className="btn btn-primary m-2"
               onClick={() => history.push("/checkout")}
             >
               Check out
