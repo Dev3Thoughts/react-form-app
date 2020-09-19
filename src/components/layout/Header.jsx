@@ -10,7 +10,7 @@ const Header = () => {
   );
 
   return (
-    <header>
+  
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <Link className="navbar-brand" to="/">
           Movie store
@@ -22,7 +22,7 @@ const Header = () => {
           <GiShoppingCart style={{ fontSize: "2rem" }} />
         </Link>
       </nav>
-    </header>
+   
   );
 };
 
