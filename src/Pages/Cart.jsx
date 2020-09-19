@@ -1,10 +1,71 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useCart } from "../useContext/cartContext";
+import {
+  BASE_POSTER_PATH,
+  baseURL,
+  BASE_LANGUAGE_URL_PATH,
+} from "../services/util/utility";
+import useFetchAll from "../services/useFetchAll";
+import Loader from "../components/Error/Loader";
+import Error from "../components/Error/Error";
 
 const Cart = () => {
   const { cart, dispatch } = useCart();
   const history = useHistory();
+
+  const urls = cart.map(
+    (i) => `${i.id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
+  );
+
+  const { data: movies, loading, error } = useFetchAll(urls);
+
+  function rederItems(itemInCart) {
+    const { id, quantity } = itemInCart;
+    const { title, poster_path } = movies.find((p) => p.id === parseInt(id));
+
+    return (
+      <div key={id} className="lead m-2 p-4 border-top">
+        <img
+          style={{ maxWidth: "160px" }}
+          src={`${BASE_POSTER_PATH}/w500${poster_path}`}
+          alt={poster_path}
+        />
+        <div className="mt-2">
+          <p>
+            <strong>Quantity:</strong> {quantity}
+          </p>
+          <p>
+            <strong>Title:</strong> {title}
+          </p>
+          <p>
+            <strong>Item ID:</strong> {id}
+          </p>
+          <button
+            type="button"
+            className="btn btn-outline-danger"
+            onClick={() => {
+              dispatch({ type: "remove", id });
+            }}
+          >
+            Remove
+          </button>
+
+          {cart.length > 0 && (
+            <button
+              className="btn btn-success m-2"
+              onClick={() => history.push("/checkout")}
+            >
+              Check out
+            </button>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  if (loading) return <Loader />;
+  if (error) return <Error />;
 
   const numItems = cart.reduce(
     (prevValue, curValue) => prevValue + curValue.quantity,
@@ -18,31 +79,7 @@ const Cart = () => {
           ? "Your cart is empty"
           : `${numItems} Item${numItems > 1 ? "'s" : ""}`}
       </h1>
-
-      {cart.map((i) => (
-        <div key={i.id} className="border border p-2 m-2">
-          <h3 className="text-primary mt-2">{i.id}</h3>
-          <h3 className="text-primary mt-2">title: {i.title}</h3>
-          <h3 className="text-primary mt-2">{i.quantity}</h3>
-          <button
-            type="button"
-            className="ml-2 btn btn-outline-danger"
-            onClick={() => {
-              dispatch({ type: "remove", id: i.id });
-            }}
-          >
-            X
-          </button>
-          {cart.length > 0 && (
-            <button
-              className="btn btn-primary m-4"
-              onClick={() => history.push("/checkout")}
-            >
-              Check out
-            </button>
-          )}
-        </div>
-      ))}
+      <section>{cart.map(rederItems)}</section>
     </div>
   );
 };
