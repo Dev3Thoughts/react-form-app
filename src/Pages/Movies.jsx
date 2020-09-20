@@ -7,6 +7,8 @@ import Loader from "../components/Error/Loader";
 import Error from "../components/Error/Error";
 import PageNotFound from "../PageNotFound";
 import "../global.css";
+// query tools
+import { ReactQueryDevtools } from "react-query-devtools";
 
 export default function MoviesDb() {
   const { data: movies, error, loading } = useFetch();
@@ -35,8 +37,11 @@ export default function MoviesDb() {
   if (movies.length === 0) return <PageNotFound />;
 
   return (
-    <div className="container mt-4">
-      <section className="row">{movies.map(renderMovies)}</section>
-    </div>
+    <>
+      <div className="container mt-4">
+        <section className="row">{movies.map(renderMovies)}</section>
+      </div>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </>
   );
 }

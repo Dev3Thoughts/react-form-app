@@ -10,19 +10,17 @@ const Header = () => {
   );
 
   return (
-  
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <Link className="navbar-brand" to="/">
-          Movie store
-        </Link>
-        <Link to="/cart" className="text-white" style={{ marginLeft: "auto" }}>
-          <span className="badge badge-info badge-pill">
-            {numItems === 0 ? "" : numItems}
-          </span>
-          <GiShoppingCart style={{ fontSize: "2rem" }} />
-        </Link>
-      </nav>
-   
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <Link className="navbar-brand" to="/">
+        Movie store
+      </Link>
+      <Link to="/cart" className="text-white" style={{ marginLeft: "auto" }}>
+        <span className="badge badge-info badge-pill">
+          {numItems === 0 ? "" : numItems}
+        </span>
+        <GiShoppingCart style={{ fontSize: "2rem" }} />
+      </Link>
+    </nav>
   );
 };
 

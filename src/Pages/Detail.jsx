@@ -10,6 +10,7 @@ import PageNotFound from "../PageNotFound";
 import Loader from "../components/Error/Loader";
 import Error from "../components/Error/Error";
 import { useCart } from "../useContext/cartContext";
+import "../global.css";
 export default function Detail() {
   const { dispatch } = useCart();
   const [data, setData] = useState([]);
@@ -42,13 +43,20 @@ export default function Detail() {
   if (loading) return <Loader />;
   if (error) return <Error />;
   if (data.length === 0) return <PageNotFound />;
+
   return (
     <div className="container row m-4">
       <img
         src={`${BASE_POSTER_PATH}/w500${data.poster_path}`}
         alt={data.original_title}
       />
-      <div className="m-4 col-md">
+      <img
+        className="backdropPath"
+        src={`${BASE_POSTER_PATH}/original${data.backdrop_path}`}
+        alt={data.original_title}
+      />
+
+      <div className="m-4 col">
         <h2 className="text-primary">{data.title}</h2>
         <strong>Overview</strong>
         <p className="lead">{data.overview}</p>
