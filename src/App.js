@@ -6,6 +6,7 @@ import Movies from "./Pages/Movies";
 import Detail from "./Pages/Detail";
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
+import Search from "./components/layout/Search";
 import "./global.css";
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Movies />
+          </Route>
+          <Route path="/search">
+            <Search />
           </Route>
           <Route path="/detail/:id">
             <Detail />

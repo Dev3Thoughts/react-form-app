@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import {
   BASE_POSTER_PATH,
   BASE_MOVIE_PATH,
+  BASE_BACKDROP_PATH,
   baseURL,
   BASE_LANGUAGE_URL_PATH,
 } from "../services/util/utility";
@@ -52,7 +53,7 @@ export default function Detail() {
       />
       <img
         className="backdropPath"
-        src={`${BASE_POSTER_PATH}/original${data.backdrop_path}`}
+        src={`${BASE_BACKDROP_PATH + data.backdrop_path}`}
         alt={data.original_title}
       />
 
