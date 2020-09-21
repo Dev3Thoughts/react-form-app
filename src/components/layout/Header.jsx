@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { GiShoppingCart } from "react-icons/gi";
-import { AiOutlineSearch } from "react-icons/ai";
+import { RiMovie2Line } from "react-icons/ri";
 import { useCart } from "../../useContext/cartContext";
 const Header = () => {
   const { cart } = useCart();
@@ -13,19 +13,25 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <NavLink className="navbar-brand" to="/">
-        Movie store
-        {" | "}
+        Movie St
+        <RiMovie2Line
+          style={{
+            fontSize: "1.5rem",
+          }}
+        />
+        re
       </NavLink>
-      <NavLink className="text-white" to="/search">
-        Search
-        <AiOutlineSearch className="ml-1" />
-      </NavLink>
-      <NavLink to="/cart" className="text-white" style={{ marginLeft: "auto" }}>
-        <span className="badge badge-info badge-pill">
-          {numItems === 0 ? "" : numItems}
-        </span>
-        <GiShoppingCart style={{ fontSize: "2rem" }} />
-      </NavLink>
+      <div style={{ marginLeft: "auto" }}>
+        <NavLink className="text-white mr-2" to="/search">
+          Search
+        </NavLink>
+        <NavLink to="/cart" className="text-white">
+          <span className="badge badge-info badge-pill">
+            {numItems === 0 ? "" : numItems}
+          </span>
+          <GiShoppingCart style={{ fontSize: "2rem" }} />
+        </NavLink>
+      </div>
     </nav>
   );
 };
