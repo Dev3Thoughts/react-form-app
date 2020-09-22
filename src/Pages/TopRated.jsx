@@ -24,29 +24,32 @@ function TopRated() {
   return (
     <>
       <div className="container mt-4">
-        <h4 className="m-2 text-uppercase">Popular</h4>
-        <button
-          className="btn btn-primary"
-          onClick={() => setPage((old) => Math.max(old - 1, 0))}
-          disabled={page === 1}
-        >
-          &laquo; Prev
-        </button>
-        <span>{page}</span>
-        <button
-          className="btn btn-primary"
-          onClick={() => {
-            setPage((old) => (!latestData || !latestData.page ? old : old + 1));
-          }}
-          disabled={!latestData || !latestData.page}
-        >
-          Next &raquo;
-        </button>
-        {isFetching ? <Loader /> : null}
-
+        <h4 className="m-2 text-uppercase">Top Rated</h4>
         <section className="row">
+          {isFetching ? <Loader /> : null}
           <MovieCard props={resolvedData.results} />
         </section>
+        <div className="mb-5">
+          <button
+            className="btn btn-primary"
+            onClick={() => setPage((old) => Math.max(old - 1, 0))}
+            disabled={page === 1}
+          >
+            &laquo; Prev
+          </button>
+          <span className="m-2">{page}</span>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              setPage((old) =>
+                !latestData || !latestData.page ? old : old + 1
+              );
+            }}
+            disabled={!latestData || !latestData.page}
+          >
+            Next &raquo;
+          </button>
+        </div>
       </div>
     </>
   );

@@ -21,17 +21,13 @@ const Header = () => {
         />
         re
       </NavLink>
-      <div className="nav-item">
-        <NavLink className="text-white mr-2" to="/popular">
+      <div className="nav-item m-2">
+        <NavLink className="text-white mr-1" to="/popular">
           Popular
-          {" | "}
         </NavLink>
-        <NavLink className="text-white mr-2" to="/top">
+        <NavLink className="text-white" to="/top">
+          {"| "}
           Top Rated
-          {" | "}
-        </NavLink>
-        <NavLink className="text-white mr-2" to="/">
-          Search
         </NavLink>
       </div>
       <NavLink to="/cart" className="text-white" style={{ marginLeft: "auto" }}>
