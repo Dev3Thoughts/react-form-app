@@ -29,9 +29,9 @@ function TopRated() {
           {isFetching ? <Loader /> : null}
           <MovieCard props={resolvedData.results} />
         </section>
-        <div className="mb-5">
+        <div className="m-4">
           <button
-            className="btn btn-primary"
+            className="btn btn-info"
             onClick={() => setPage((old) => Math.max(old - 1, 0))}
             disabled={page === 1}
           >
@@ -39,7 +39,7 @@ function TopRated() {
           </button>
           <span className="m-2">{page}</span>
           <button
-            className="btn btn-primary"
+            className="btn btn-info"
             onClick={() => {
               setPage((old) =>
                 !latestData || !latestData.page ? old : old + 1

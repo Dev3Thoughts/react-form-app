@@ -52,7 +52,7 @@ const Cart = () => {
 
           {cart.length > 0 && (
             <button
-              className="btn btn-primary m-2"
+              className="btn btn-info m-2"
               onClick={() => history.push("/checkout")}
             >
               Check out

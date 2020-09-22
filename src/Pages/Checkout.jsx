@@ -123,7 +123,7 @@ export default function Checkout() {
         <div>
           <input
             type="submit"
-            className="btn btn-primary mt-4"
+            className="btn btn-info mt-4"
             value="Save Shipping Info"
             disabled={status === STATUS.SUBMITTING}
           />
