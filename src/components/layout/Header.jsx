@@ -21,17 +21,25 @@ const Header = () => {
         />
         re
       </NavLink>
-      <div style={{ marginLeft: "auto" }}>
-        <NavLink className="text-white mr-2" to="/search">
+      <div className="nav-item">
+        <NavLink className="text-white mr-2" to="/popular">
+          Popular
+          {" | "}
+        </NavLink>
+        <NavLink className="text-white mr-2" to="/top">
+          Top Rated
+          {" | "}
+        </NavLink>
+        <NavLink className="text-white mr-2" to="/">
           Search
         </NavLink>
-        <NavLink to="/cart" className="text-white">
-          <span className="badge badge-info badge-pill">
-            {numItems === 0 ? "" : numItems}
-          </span>
-          <GiShoppingCart style={{ fontSize: "2rem" }} />
-        </NavLink>
       </div>
+      <NavLink to="/cart" className="text-white" style={{ marginLeft: "auto" }}>
+        <span className="badge badge-info badge-pill">
+          {numItems === 0 ? "" : numItems}
+        </span>
+        <GiShoppingCart style={{ fontSize: "2rem" }} />
+      </NavLink>
     </nav>
   );
 };

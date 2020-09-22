@@ -2,12 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/layout/Header";
 import PageNotFound from "./PageNotFound";
-import Movies from "./Pages/Movies";
+import Popular from "./Pages/Popular";
+import TopRated from "./Pages/TopRated";
 import Detail from "./Pages/Detail";
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
 import Search from "./components/layout/Search";
 import "./global.css";
+import { ReactQueryDevtools } from "react-query-devtools";
 function App() {
   return (
     <>
@@ -15,10 +17,13 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-            <Movies />
-          </Route>
-          <Route path="/search">
             <Search />
+          </Route>
+          <Route path="/popular">
+            <Popular />
+          </Route>
+          <Route path="/top">
+            <TopRated />
           </Route>
           <Route path="/detail/:id">
             <Detail />
@@ -34,6 +39,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
 }

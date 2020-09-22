@@ -11,9 +11,6 @@ import {
 // import Error from "../Error/Error";
 // import PageNotFound from "../PageNotFound";
 
-// query tools
-import { ReactQueryDevtools } from "react-query-devtools";
-
 const fetchApi = async (search) => {
   const res = await fetch(
     `${SEARCH_MOVIE_PATH}api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&query=${search}&page=1&include_adult=false`
@@ -30,7 +27,6 @@ const Search = () => {
   const { data } = useQuery(search, fetchApi, {
     retry: false,
   });
-  console.log(data);
 
   // function renderMovies(i) {
   //   return (
@@ -91,7 +87,6 @@ const Search = () => {
         {/* <div>{data.title}</div> */}
       </div>
       {/* <div>{data.map(renderMovies)}</div> */}
-      <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
 };
