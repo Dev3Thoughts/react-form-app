@@ -1,3 +1,7 @@
+:root {
+  --tmdbDarkBlue: 3, 37, 65;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -33,4 +37,20 @@ img {
   z-index: -1;
   opacity: 0.2;
   background-size: cover;
+}
+
+.backGround {
+  position: fixed;
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+  z-index: -1;
+  background-size: cover;
+  background-image: 
+  linear-gradient(
+      to right,
+      rgba(var(--tmdbDarkBlue), 0.8) 20%,
+      rgba(var(--tmdbDarkBlue), 0) 100%
+    ),
+    url(https://www.themoviedb.org/assets/2/v4/marketing/deadpool-06f2a06d7a418ec887300397b6861383bf1e3b72f604ddd5f75bce170e81dce9.png);
 }

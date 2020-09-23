@@ -6,6 +6,8 @@ import {
   BASE_LANGUAGE_URL_PATH,
 } from "../../services/util/utility";
 import MovieCard from "../layout/MovieCard";
+import "../../global.css";
+
 const fetchApi = async (search) => {
   const res = await fetch(
     `${SEARCH_MOVIE_PATH}api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&query=${search}&page=1&include_adult=false`
@@ -37,8 +39,8 @@ const Search = () => {
           <input
             className="form-control mr-sm-2"
             type="text"
-            id="search bar"
-            placeholder="Search"
+            id="search"
+            placeholder="Search..."
             value={search}
             onChange={handleChange}
           />
