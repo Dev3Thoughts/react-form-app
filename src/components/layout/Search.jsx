@@ -23,18 +23,24 @@ const Search = () => {
   const [search, setSearch] = useState(" ");
   const { data, isFetching } = useQuery(search, fetchApi);
 
-  // console.log(isFetching);
-
   async function handleChange(e) {
     e.preventDefault();
     await setSearch(e.target.value);
   }
+
   return (
-    <>
-      <div className="p-5 m-4 ">
-        <form className=" my-2 my-lg-0">
+    <div className="linear">
+      <div className="wrapper">
+        <h1>Welcome.</h1>
+        <h3>
+          Millions of movies, TV shows and people to discover. Explore now.
+        </h3>
+        <div className="heroImg"></div>
+      </div>
+      <div className="px-5 pb-3">
+        <form>
           <label htmlFor="search bar">
-            <h1>Seach</h1>
+            <h3>Seach</h3>
           </label>
           <input
             className="form-control mr-sm-2"
@@ -47,7 +53,7 @@ const Search = () => {
         </form>
         <div>{!isFetching ? <MovieCard props={data} /> : ""}</div>
       </div>
-    </>
+    </div>
   );
 };
 
