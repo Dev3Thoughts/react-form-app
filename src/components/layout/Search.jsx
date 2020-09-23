@@ -29,31 +29,31 @@ const Search = () => {
   }
 
   return (
-    <div className="linear">
-      <div className="wrapper">
+    <>
+      <div className="m-4">
         <h1>Welcome.</h1>
         <h3>
           Millions of movies, TV shows and people to discover. Explore now.
         </h3>
-        <div className="heroImg"></div>
+        <div className="px-5">
+          <div className="heroImg"></div>
+          <form>
+            <label htmlFor="search bar">
+              <h3>Seach</h3>
+            </label>
+            <input
+              className="form-control mr-sm-2"
+              type="text"
+              id="search"
+              placeholder="Search..."
+              value={search}
+              onChange={handleChange}
+            />
+          </form>
+          <div>{!isFetching ? <MovieCard props={data} /> : ""}</div>
+        </div>
       </div>
-      <div className="px-5 pb-3">
-        <form>
-          <label htmlFor="search bar">
-            <h3>Seach</h3>
-          </label>
-          <input
-            className="form-control mr-sm-2"
-            type="text"
-            id="search"
-            placeholder="Search..."
-            value={search}
-            onChange={handleChange}
-          />
-        </form>
-        <div>{!isFetching ? <MovieCard props={data} /> : ""}</div>
-      </div>
-    </div>
+    </>
   );
 };
 
