@@ -58,7 +58,7 @@ export default function Detail() {
       />
 
       <div className="m-4 col">
-        <h2 className="text-info">{data.title}</h2>
+        <h2>{data.title}</h2>
         <strong>Overview</strong>
         <p className="lead">{data.overview}</p>
         <strong>Release:</strong>

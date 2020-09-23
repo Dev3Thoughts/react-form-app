@@ -11,7 +11,7 @@ const Header = () => {
   );
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-danger sticky-top ">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
       <NavLink className="navbar-brand" to="/">
         Movie St
         <RiMovie2Line

@@ -52,7 +52,7 @@ const Cart = () => {
 
           {cart.length > 0 && (
             <button
-              className="btn btn-info m-2"
+              className="btn btn-primary m-2"
               onClick={() => history.push("/checkout")}
             >
               Check out
@@ -73,7 +73,7 @@ const Cart = () => {
 
   return (
     <div className="container mt-4">
-      <h1 className="text-info">
+      <h1>
         {numItems === 0
           ? "Your cart is empty"
           : `${numItems} Item${numItems > 1 ? "'s" : ""}`}

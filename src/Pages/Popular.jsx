@@ -31,7 +31,7 @@ function Popular() {
         </section>
         <div className="m-4">
           <button
-            className="btn btn-info"
+            className="btn btn-primary"
             onClick={() => setPage((old) => Math.max(old - 1, 0))}
             disabled={page === 1}
           >
@@ -39,7 +39,7 @@ function Popular() {
           </button>
           <span className="m-2">{page}</span>
           <button
-            className="btn btn-info"
+            className="btn btn-primary"
             onClick={() => {
               setPage((old) =>
                 !latestData || !latestData.page ? old : old + 1
