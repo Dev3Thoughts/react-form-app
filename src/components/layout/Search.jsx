@@ -6,6 +6,8 @@ import {
   BASE_LANGUAGE_URL_PATH,
 } from "../../services/util/utility";
 import MovieCard from "../layout/MovieCard";
+import Loader from "../Error/Loader";
+// import Error from "../Error/Error";
 import "../../global.css";
 
 const fetchApi = async (search) => {
@@ -21,7 +23,7 @@ const fetchApi = async (search) => {
 
 const Search = () => {
   const [search, setSearch] = useState("");
-  const { data } = useQuery(search, fetchApi, {
+  const { data, status } = useQuery(search, fetchApi, {
     retry: false,
   });
 
@@ -51,7 +53,13 @@ const Search = () => {
             onChange={handleChange}
           />
         </form>
-        <div>{data && <MovieCard props={data} />}</div>
+        <div>
+          {status === "loading" ? (
+            <Loader />
+          ) : (
+            data && <MovieCard props={data} />
+          )}
+        </div>
       </div>
     </>
   );
