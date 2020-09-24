@@ -20,8 +20,10 @@ const fetchApi = async (search) => {
 };
 
 const Search = () => {
-  const [search, setSearch] = useState(" ");
-  const { data, isFetching } = useQuery(search, fetchApi);
+  const [search, setSearch] = useState("");
+  const { data } = useQuery(search, fetchApi, {
+    retry: false,
+  });
 
   async function handleChange(e) {
     e.preventDefault();
@@ -35,23 +37,21 @@ const Search = () => {
         <h3>
           Millions of movies, TV shows and people to discover. Explore now.
         </h3>
-        <div className="px-5">
-          <div className="heroImg"></div>
-          <form>
-            <label htmlFor="search bar">
-              <h3>Seach</h3>
-            </label>
-            <input
-              className="form-control mr-sm-2"
-              type="text"
-              id="search"
-              placeholder="Search..."
-              value={search}
-              onChange={handleChange}
-            />
-          </form>
-          <div>{!isFetching ? <MovieCard props={data} /> : ""}</div>
-        </div>
+        <div className="heroImg"></div>
+        <form>
+          <label htmlFor="search bar">
+            <h3>Seach</h3>
+          </label>
+          <input
+            className="form-control mr-sm-2"
+            type="text"
+            id="search"
+            placeholder="Search for a movie, tv show, person......"
+            value={search}
+            onChange={handleChange}
+          />
+        </form>
+        <div>{data && <MovieCard props={data} />}</div>
       </div>
     </>
   );

@@ -42,13 +42,10 @@ img {
 }
 
 .heroImg {
-  min-height: 360px;
-  width: 100%;
   position: relative;
+  min-height: 380px;
+  width: 100%;
   z-index: -1;
-  background-position: top center;
-  background-position-x: center;
-  background-position-y: top;
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url(https://www.themoviedb.org/assets/2/v4/marketing/deadpool-06f2a06d7a418ec887300397b6861383bf1e3b72f604ddd5f75bce170e81dce9.png);
