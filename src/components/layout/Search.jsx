@@ -41,14 +41,14 @@ const Search = () => {
         </h3>
         <div className="heroImg"></div>
         <form>
-          <label htmlFor="search bar">
+          <label htmlFor="search">
             <h3>Seach</h3>
           </label>
           <input
             className="form-control mr-sm-2"
             type="text"
             id="search"
-            placeholder="Search for a movie, tv show, person......"
+            placeholder="Search for a movie, tv show, person..."
             value={search}
             onChange={handleChange}
           />
