@@ -7,7 +7,7 @@ import "../../global.css";
 
 const Search = () => {
   const [search, setSearch] = useState("");
-  const { data, status, isFetching, isError, error } = useQuery(
+  const { data, isLoading, isFetching, isError, error } = useQuery(
     [search, "Search"],
     searchApi,
     {
@@ -49,7 +49,7 @@ const Search = () => {
       <div>
         {isError ? (
           error.message
-        ) : status === "loading" ? (
+        ) : isLoading ? (
           <Loader />
         ) : (
           data && <MovieCard props={data} />
