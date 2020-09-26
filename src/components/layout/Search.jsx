@@ -7,7 +7,6 @@ import {
 } from "../../services/util/utility";
 import MovieCard from "../layout/MovieCard";
 import Loader from "../Error/Loader";
-// import Error from "../Error/Error";
 import "../../global.css";
 
 const fetchApi = async (search) => {
@@ -23,9 +22,17 @@ const fetchApi = async (search) => {
 
 const Search = () => {
   const [search, setSearch] = useState("");
-  const { data, status } = useQuery(search, fetchApi, {
-    retry: false,
-  });
+  const { data, status, isFetching, isError, error } = useQuery(
+    [search, "Search"],
+    fetchApi,
+    {
+      enabled: search,
+      retry: false,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+    }
+  );
 
   async function handleChange(e) {
     e.preventDefault();
@@ -35,31 +42,34 @@ const Search = () => {
   return (
     <>
       <div className="m-4">
-        <h1>Welcome.</h1>
-        <h3>
+        <h2>Welcome.</h2>
+        <h4>
           Millions of movies, TV shows and people to discover. Explore now.
-        </h3>
-        <div className="heroImg"></div>
-        <form>
-          <label htmlFor="search">
-            <h3>Seach</h3>
-          </label>
-          <input
-            className="form-control mr-sm-2"
-            type="text"
-            id="search"
-            placeholder="Search for a movie, tv show, person..."
-            value={search}
-            onChange={handleChange}
-          />
-        </form>
-        <div>
-          {status === "loading" ? (
-            <Loader />
-          ) : (
-            data && <MovieCard props={data} />
-          )}
-        </div>
+        </h4>
+      </div>
+      <div className="heroImg"></div>
+      <form className="mx-6">
+        <label htmlFor="search">
+          <h3>Seach</h3>
+        </label>
+        <input
+          className="form-control"
+          type="text"
+          id="search"
+          placeholder="Search for a movie, tv show, person..."
+          value={search}
+          onChange={handleChange}
+        />
+      </form>
+      <div>
+        {isError ? (
+          error.message
+        ) : status === "loading" ? (
+          <Loader />
+        ) : (
+          data && <MovieCard props={data} />
+        )}
+        {isFetching ? "Updating..." : null}
       </div>
     </>
   );
