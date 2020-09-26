@@ -27,6 +27,14 @@ img {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.cardTitle {
+  border-radius: 8px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background:  rgba(50, 144, 171, 1);
+  color: #fff;
+}
+
 .backdropPath {
   border-radius: 0;
   position: fixed;

@@ -25,6 +25,7 @@ export const popularApi = async (key, page) => {
   throw res;
 };
 
+// top rated movies
 export const topRatedApi = async (key, page) => {
   const res = await fetch(
     `${BASE_MOVIE_PATH}top_rated?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&page=${page}`
@@ -32,6 +33,26 @@ export const topRatedApi = async (key, page) => {
   if (res.ok) {
     const json = await res.json();
     return json;
+  }
+  throw res;
+};
+
+// // serach api
+export const searchApi = async (search) => {
+  const controller = new AbortController();
+  const signal = controller.signal;
+
+  const res = await fetch(
+    `${SEARCH_MOVIE_PATH}api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&query=${search}&page=1&include_adult=false`,
+    {
+      method: "get",
+      signal,
+    }
+  );
+  if (res.ok) {
+    const json = await res.json();
+    json.cancel = async () => await controller.abort();
+    return json.results;
   }
   throw res;
 };

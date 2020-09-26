@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BASE_POSTER_PATH } from "../../services/util/utility";
 import { Link } from "react-router-dom";
-
+import "../../global.css";
 function renderMovies({ props }) {
   return (
     <>
@@ -15,10 +15,14 @@ function renderMovies({ props }) {
               transition={{ ease: "easeOut", duration: 0.4 }}
             >
               <Link to={`/detail/${i.id}`}>
-                <img
-                  src={`${BASE_POSTER_PATH}/w500${i.poster_path}`}
-                  alt={i.original_title}
-                />
+                {i.poster_path === null ? (
+                  <h3 className="cardTitle p-2">{i.title}</h3>
+                ) : (
+                  <img
+                    src={`${BASE_POSTER_PATH}/w500${i.poster_path}`}
+                    alt={i.original_title}
+                  />
+                )}
               </Link>
             </motion.div>
           </div>
@@ -29,3 +33,7 @@ function renderMovies({ props }) {
 }
 
 export default renderMovies;
+
+// {
+//   !i.poster_path ? <h2 className="border border p-2">{i.title}</h2> : null;
+// }

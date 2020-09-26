@@ -47,15 +47,22 @@ export default function Detail() {
 
   return (
     <div className="container row m-4">
-      <img
-        src={`${BASE_POSTER_PATH}/w500${data.poster_path}`}
-        alt={data.original_title}
-      />
-      <img
-        className="backdropPath"
-        src={`${BASE_BACKDROP_PATH + data.backdrop_path}`}
-        alt={data.original_title}
-      />
+      {data.poster_path === null ? (
+        <h3 className=" p-2">{data.title}</h3>
+      ) : (
+        (
+          <img
+            src={`${BASE_POSTER_PATH}/w500${data.poster_path}`}
+            alt={data.original_title}
+          />
+        ) && (
+          <img
+            className="backdropPath"
+            src={`${BASE_BACKDROP_PATH + data.backdrop_path}`}
+            alt={data.original_title}
+          />
+        )
+      )}
 
       <div className="m-4 col">
         <h2>{data.title}</h2>

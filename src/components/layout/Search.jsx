@@ -1,30 +1,15 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import {
-  SEARCH_MOVIE_PATH,
-  baseURL,
-  BASE_LANGUAGE_URL_PATH,
-} from "../../services/util/utility";
+import { searchApi } from "../../services/util/utility";
 import MovieCard from "../layout/MovieCard";
 import Loader from "../Error/Loader";
 import "../../global.css";
-
-const fetchApi = async (search) => {
-  const res = await fetch(
-    `${SEARCH_MOVIE_PATH}api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&query=${search}&page=1&include_adult=false`
-  );
-  if (res.ok) {
-    const json = await res.json();
-    return json.results;
-  }
-  throw res;
-};
 
 const Search = () => {
   const [search, setSearch] = useState("");
   const { data, status, isFetching, isError, error } = useQuery(
     [search, "Search"],
-    fetchApi,
+    searchApi,
     {
       enabled: search,
       retry: false,
@@ -48,9 +33,9 @@ const Search = () => {
         </h4>
       </div>
       <div className="heroImg"></div>
-      <form className="mx-6">
+      <form className="mx-5">
         <label htmlFor="search">
-          <h3>Seach</h3>
+          <h5>Seach</h5>
         </label>
         <input
           className="form-control"
