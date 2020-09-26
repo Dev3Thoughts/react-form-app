@@ -21,15 +21,18 @@ const Cart = () => {
 
   function rederItems(itemInCart) {
     const { id, quantity } = itemInCart;
-    const { title, poster_path } = movies.find((p) => p.id === parseInt(id));
+    const { title, poster_path, original_title } = movies.find(
+      (p) => p.id === parseInt(id)
+    );
 
     return (
       <div key={id} className="lead m-2 p-4 border-top">
-        <img
-          style={{ maxWidth: "160px" }}
-          src={`${BASE_POSTER_PATH}/w500${poster_path}`}
-          alt={poster_path}
-        />
+        {poster_path === null ? null : (
+          <img
+            src={`${BASE_POSTER_PATH}/w500${poster_path}`}
+            alt={original_title}
+          />
+        )}
         <div className="mt-2">
           <p>
             <strong>Quantity:</strong> {quantity}

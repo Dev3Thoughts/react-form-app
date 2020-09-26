@@ -3,7 +3,6 @@ import { popularApi } from "../services/util/utility";
 import { usePaginatedQuery } from "react-query";
 import Loader from "../components/Error/Loader";
 import Error from "../components/Error/Error";
-import PageNotFound from "../PageNotFound";
 import MovieCard from "../components/layout/MovieCard";
 import "../global.css";
 
@@ -19,7 +18,6 @@ function Popular() {
 
   if (isError) return <Error />;
   if (isLoading) return <Loader />;
-  if (resolvedData.length === 0) return <PageNotFound />;
 
   return (
     <>

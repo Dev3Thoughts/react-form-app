@@ -42,24 +42,25 @@ export default function Detail() {
   }, [id]);
 
   if (loading) return <Loader />;
-  if (error) return <Error />;
   if (data.length === 0) return <PageNotFound />;
+  if (error) return <Error />;
 
   return (
     <div className="container row m-4">
-      {data.poster_path === null ? (
-        <h3 className=" p-2">{data.title}</h3>
-      ) : (
+      {data.poster_path === null ? null : (
         <img
           src={`${BASE_POSTER_PATH}/w500${data.poster_path}`}
           alt={data.original_title}
         />
       )}
-      <img
-        className="backdropPath"
-        src={`${BASE_BACKDROP_PATH + data.backdrop_path}`}
-        alt={data.original_title}
-      />
+      {data.backdrop_path === null ? null : (
+        <img
+          className="backdropPath"
+          src={`${BASE_BACKDROP_PATH + data.backdrop_path}`}
+          alt={data.original_title}
+        />
+      )}
+
       <div className="m-4 col">
         <h2>{data.title}</h2>
         <strong>Overview</strong>

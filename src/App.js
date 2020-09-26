@@ -7,7 +7,7 @@ import TopRated from "./Pages/TopRated";
 import Detail from "./Pages/Detail";
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
-import Search from "./components/layout/Search";
+import Search from "./Pages/Search";
 import "./global.css";
 import { ReactQueryDevtools } from "react-query-devtools";
 function App() {

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import { searchApi } from "../../services/util/utility";
-import MovieCard from "../layout/MovieCard";
-import Loader from "../Error/Loader";
-import "../../global.css";
+import { searchApi } from "../services/util/utility";
+import MovieCard from "../components/layout/MovieCard";
+import Loader from "../components/Error/Loader";
+import "../global.css";
 
 const Search = () => {
   const [search, setSearch] = useState("");
