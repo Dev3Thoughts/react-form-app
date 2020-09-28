@@ -15,7 +15,6 @@ const Search = () => {
       retry: false,
       refetchOnMount: false,
       refetchOnWindowFocus: false,
-      refetchOnReconnect: false,
     }
   );
 

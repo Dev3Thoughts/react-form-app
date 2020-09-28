@@ -14,15 +14,19 @@ function TopRated() {
     isError,
     isLoading,
     isFetching,
-  } = usePaginatedQuery(["top_rated", page], topRatedApi);
+  } = usePaginatedQuery(["topRated", page], topRatedApi, {
+    refetchOnWindowFocus: false,
+  });
 
-  if (isError) return <Error />;
   if (isLoading) return <Loader />;
+  if (isError) return <Error />;
 
   return (
     <>
       <div className="container mt-4">
-        <h4 className="m-2 text-uppercase">Top Rated</h4>
+        <h4 className="m-2 text-uppercase">
+          Top Rated{isFetching ? <small>...</small> : null}
+        </h4>
         <section className="row">
           {isFetching ? <Loader /> : null}
           <MovieCard props={resolvedData.results} />
@@ -34,8 +38,7 @@ function TopRated() {
             disabled={page === 1}
           >
             &laquo; Prev
-          </button>
-          <span className="m-2">{page}</span>
+          </button>{" "}
           <button
             className="btn btn-primary"
             onClick={() => {
@@ -43,10 +46,11 @@ function TopRated() {
                 !latestData || !latestData.page ? old : old + 1
               );
             }}
-            disabled={!latestData || !latestData.page}
+            disabled={!latestData?.page}
           >
-            Next &raquo;
-          </button>
+            Next {page + 1} &raquo;
+          </button>{" "}
+          {isFetching ? <small>...</small> : null}
         </div>
       </div>
     </>

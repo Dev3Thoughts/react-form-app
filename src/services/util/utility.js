@@ -9,35 +9,11 @@ export const BASE_POSTER_PATH = "https://image.tmdb.org/t/p";
 
 export const baseURL = process.env.REACT_APP_API_KEY;
 
-export const URL = Object.freeze({
-  // API_URL: `https://api.themoviedb.org/3/movie/550?api_key=${baseURL}&language=en-US`
-  API_URL: `${BASE_MOVIE_PATH}popular?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&page=1`,
-});
+// export const URL = Object.freeze({
+//   API_URL: `${BASE_MOVIE_PATH}popular?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&page=1`,
+// });
 
-// export const movieId = async (key, page) => {
-//   const res = await fetch(
-//     `${BASE_MOVIE_PATH}${id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
-//   );
-//   if (res.ok) {
-//     const json = await res.json();
-//     return json;
-//   }
-//   throw res;
-// };
-
-// top rated movies
-export const topRatedApi = async (key, page) => {
-  const res = await fetch(
-    `${BASE_MOVIE_PATH}top_rated?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&page=${page}`
-  );
-  if (res.ok) {
-    const json = await res.json();
-    return json;
-  }
-  throw res;
-};
-
-// // serach api
+// serach api
 export const searchApi = async (search) => {
   const controller = new AbortController();
   const signal = controller.signal;
@@ -57,29 +33,27 @@ export const searchApi = async (search) => {
   throw res;
 };
 
+// top rated movies
+export const topRatedApi = async (_, page) => {
+  // await new Promise((resolve) => setTimeout(resolve, 1000));
+  const res = await fetch(
+    `${BASE_MOVIE_PATH}top_rated?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}pageSize=10&page=${page}`
+  );
+  if (res.ok) {
+    const json = await res.json();
+    return json;
+  }
+  throw res;
+};
 
-
-// `${BASE_MOVIE_PATH}${id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
-
-
-
-// useEffect(() => {
-//   async function init() {
-//     try {
-//       const res = await fetch(
-//         `${BASE_MOVIE_PATH}${id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
-//       );
-//       if (res.ok) {
-//         const json = await res.json();
-//         setData(json);
-//       } else {
-//         throw res;
-//       }
-//     } catch (e) {
-//       setError(e);
-//     } finally {
-//       setLoading(false);
-//     }
-//   }
-//   init();
-// }, [id]);
+// Detail page
+export const movieId = async (id) => {
+  const res = await fetch(
+    `${BASE_MOVIE_PATH}${id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
+  );
+  if (res.ok) {
+    const json = await res.json();
+    return json;
+  }
+  throw res;
+};
