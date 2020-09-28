@@ -22,11 +22,7 @@ const Header = () => {
         re
       </NavLink>
       <div className="nav-item m-2">
-        <NavLink className="text-white mr-1" to="/popular">
-          Popular
-        </NavLink>
         <NavLink className="text-white" to="/top">
-          {"| "}
           Top Rated
         </NavLink>
       </div>

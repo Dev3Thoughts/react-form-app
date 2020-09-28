@@ -33,9 +33,9 @@ const Search = () => {
         </h4>
       </div>
       <div className="heroImg"></div>
-      <form className="mx-5">
+      <form className="mx-4 mb-4">
         <label htmlFor="search">
-          <h5>Seach</h5>
+          <h5>Seach {isFetching ? "..." : null}</h5>
         </label>
         <input
           className="form-control"
@@ -54,7 +54,6 @@ const Search = () => {
         ) : (
           data && <MovieCard props={data} />
         )}
-        {isFetching ? "Updating..." : null}
       </div>
     </>
   );

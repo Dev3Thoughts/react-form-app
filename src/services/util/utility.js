@@ -14,16 +14,16 @@ export const URL = Object.freeze({
   API_URL: `${BASE_MOVIE_PATH}popular?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&page=1`,
 });
 
-export const popularApi = async (key, page) => {
-  const res = await fetch(
-    `${BASE_MOVIE_PATH}popular?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&page=${page}`
-  );
-  if (res.ok) {
-    const json = await res.json();
-    return json;
-  }
-  throw res;
-};
+// export const movieId = async (key, page) => {
+//   const res = await fetch(
+//     `${BASE_MOVIE_PATH}${id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
+//   );
+//   if (res.ok) {
+//     const json = await res.json();
+//     return json;
+//   }
+//   throw res;
+// };
 
 // top rated movies
 export const topRatedApi = async (key, page) => {
@@ -56,3 +56,30 @@ export const searchApi = async (search) => {
   }
   throw res;
 };
+
+
+
+// `${BASE_MOVIE_PATH}${id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
+
+
+
+// useEffect(() => {
+//   async function init() {
+//     try {
+//       const res = await fetch(
+//         `${BASE_MOVIE_PATH}${id}?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}`
+//       );
+//       if (res.ok) {
+//         const json = await res.json();
+//         setData(json);
+//       } else {
+//         throw res;
+//       }
+//     } catch (e) {
+//       setError(e);
+//     } finally {
+//       setLoading(false);
+//     }
+//   }
+//   init();
+// }, [id]);

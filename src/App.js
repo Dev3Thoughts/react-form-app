@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/layout/Header";
 import PageNotFound from "./PageNotFound";
-import Popular from "./Pages/Popular";
 import TopRated from "./Pages/TopRated";
 import Detail from "./Pages/Detail";
 import Cart from "./Pages/Cart";
@@ -19,9 +18,6 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Search />
-            </Route>
-            <Route path="/popular">
-              <Popular />
             </Route>
             <Route path="/top">
               <TopRated />
