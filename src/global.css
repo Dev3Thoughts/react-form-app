@@ -1,12 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.9248074229691877) 0%,
-    rgba(50, 144, 171, 1) 100%
-  );
 }
 
 .full-page-loader {
@@ -31,7 +25,7 @@ img {
   border-radius: 8px;
   max-width: 300px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background:  rgba(50, 144, 171, 1);
+  background: rgba(50, 144, 171, 1);
   color: #fff;
 }
 

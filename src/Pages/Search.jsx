@@ -32,7 +32,7 @@ const Search = () => {
         </h4>
       </div>
       <div className="heroImg"></div>
-      <form className="mx-4 mb-4">
+      <form className="mx-4 mb-5">
         <label htmlFor="search">
           <h5>Seach {isFetching ? "..." : null}</h5>
         </label>

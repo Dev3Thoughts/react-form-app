@@ -21,8 +21,8 @@
   },
   "scripts": {
     "start": "run-p start-app json-server",
-    "start-app": "cross-env REACT_APP_API_BASE_URL=http://localhost:5002/ react-scripts start",
-    "json-server": "json-server --port 5002 --watch db.json",
+    "start-app": "cross-env REACT_APP_API_BASE_URL=http://localhost:5005/ react-scripts start",
+    "json-server": "json-server --port 5005 --watch db.json",
     "format": "prettier \"src/**/*.{js,jsx,html}\" --write",
     "build": "react-scripts build",
     "test": "react-scripts test",

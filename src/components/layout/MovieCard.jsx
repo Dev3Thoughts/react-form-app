@@ -33,7 +33,3 @@ function renderMovies({ props }) {
 }
 
 export default renderMovies;
-
-// {
-//   !i.poster_path ? <h2 className="border border p-2">{i.title}</h2> : null;
-// }
