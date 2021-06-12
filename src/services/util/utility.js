@@ -13,7 +13,7 @@ export const baseURL = process.env.REACT_APP_API_KEY;
 //   API_URL: `${BASE_MOVIE_PATH}popular?api_key=${baseURL}${BASE_LANGUAGE_URL_PATH}&page=1`,
 // });
 
-// serach api
+// search movies api
 export const searchApi = async (search) => {
   const controller = new AbortController();
   const signal = controller.signal;
